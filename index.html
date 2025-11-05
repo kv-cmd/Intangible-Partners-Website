@@ -1,3 +1,395 @@
-<!doctype html><html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width, initial-scale=1'><title>Home</title>
-<style>body{margin:0;background:#0B0F17;color:white;font-family:Inter,system-ui}header{padding:24px 40px;background:#0F1320;display:flex;gap:24px}header a{color:white;text-decoration:none;font-weight:600}</style></head>
-<body><header><a href='index.html'>Home</a><a href='about.html'>About</a><a href='services.html'>Services</a><a href='case-studies.html'>Case Studies</a><a href='pricing.html'>Pricing</a><a href='contact.html'>Contact</a></header><img src='assets/hero.svg' style='width:100%'><h1 style='padding:40px'>Enterprise AI Workforce</h1><footer style='padding:60px;text-align:center;color:rgba(255,255,255,.6)'>©2025 Intangible Partners</footer></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Intangible Partners</title>
+<meta name="description" content="Intangible Partners — Our Mission is to Create, Build, and Deploy Intangible Machines that Partner with Companies to Create Value.">
+<style>
+:root{
+  --bg:#0E1117;
+  --card:#111319;
+  --white:#fff;
+  --muted:rgba(255,255,255,.78);
+  --muted2:rgba(255,255,255,.6);
+  --glow1:rgba(38,99,248,0.30);
+  --glow2:rgba(111,61,244,0.30);
+  --neon:rgba(102,51,255,0.85);
+  --neon-soft:rgba(102,51,255,0.5);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--white);
+  font-family:ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+}
+
+/* Layout */
+.container{max-width:1120px;margin-inline:auto;padding-inline:20px}
+header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(14,17,23,.92);
+  backdrop-filter:saturate(140%) blur(10px);
+  border-bottom:1px solid rgba(255,255,255,.10);
+}
+.navbar{height:64px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:10px;min-width:0}
+.brand img{height:28px}
+.brand small{display:none;color:var(--muted2);font-size:10px;letter-spacing:.08em}
+@media(min-width:640px){.brand img{height:32px}.brand small{display:inline}}
+.nav{display:none;gap:24px}
+@media(min-width:768px){.nav{display:flex}}
+.nav a{
+  color:var(--muted2);text-decoration:none;transition:color .2s ease, text-shadow .2s ease;
+}
+.nav a.active, .nav a:hover{color:#fff;text-shadow:0 0 8px var(--neon)}
+.menu{display:block;background:none;border:0;color:var(--muted2);font-size:24px;line-height:1}
+@media(min-width:768px){.menu{display:none}}
+
+/* Drawer */
+.drawer{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none}
+.drawer.open{display:block}
+.drawer .panel{
+  position:absolute;right:0;top:0;height:100%;width:288px;
+  background:#0E1117;border-left:1px solid rgba(255,255,255,.10);
+  padding:20px;box-shadow:-8px 0 20px rgba(0,0,0,.35);
+  animation:slideIn .25s ease-out both;
+}
+@keyframes slideIn{from{transform:translateX(12px);opacity:0}to{transform:translateX(0);opacity:1}}
+.drawer .panel a{display:block;color:var(--muted2);text-decoration:none;margin:12px 0}
+.drawer .panel a:hover{color:#fff}
+
+/* Hero */
+.hero{position:relative;overflow:hidden}
+.hero .glow{position:absolute;border-radius:9999px;filter:blur(130px);opacity:.6;pointer-events:none}
+.glow.one{width:36rem;height:36rem;left:50%;top:-20%;transform:translateX(-50%);background:var(--glow1)}
+.glow.two{width:32rem;height:32rem;right:33%;bottom:-25%;background:var(--glow2)}
+.hero .particles{position:absolute;inset:0;pointer-events:none}
+.hero-inner{padding-top:86px;padding-bottom:60px;text-align:center}
+.hero .logo{height:90px}
+@media(min-width:640px){.hero .logo{height:104px}}
+@media(min-width:768px){.hero .logo{height:120px}}
+h1{margin:18px auto 6px;font-size:26px;font-weight:600;line-height:1.25;max-width:760px;text-shadow:0 0 6px var(--neon-soft)}
+@media(min-width:640px){h1{font-size:30px}}
+h2{margin:0 auto;font-size:18px;font-weight:500;max-width:760px}
+@media(min-width:640px){h2{font-size:20px}}
+u, .underline{text-decoration:underline}
+.cta{margin-top:24px}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  background:#fff;color:#0E1117;border-radius:12px;
+  padding:10px 16px;border:0;cursor:pointer;font-weight:700;
+  box-shadow:0 2px 0 rgba(255,255,255,.35), 0 0 18px rgba(255,255,255,.25);
+}
+
+/* Sections */
+.section{padding:64px 0}
+.section h3{
+  text-align:center;font-size:20px;font-weight:800;margin:0 0 8px;
+  text-shadow:0 0 6px var(--neon-soft);
+}
+.section p.lead{color:var(--muted);max-width:720px;margin:0 auto;text-align:center;line-height:1.6}
+
+/* Cards */
+.grid{display:grid;gap:20px}
+@media(min-width:768px){.grid.cols-3{grid-template-columns:repeat(3,1fr)}}
+.card{
+  background:var(--card);border:1px solid rgba(255,255,255,.10);border-radius:16px;
+  box-shadow:0 0 25px rgba(102,51,255,.25);
+  transform:translateY(0); transition:box-shadow .25s ease, transform .25s ease;
+}
+.card:hover{box-shadow:0 0 38px rgba(51,132,255,.55); transform:translateY(-4px)}
+.card .ch{padding:20px 20px 8px}
+.card .ct{padding:8px 20px 20px}
+.card h4{margin:0 0 8px;font-size:18px}
+.card ul{margin:0;padding-left:18px;color:var(--muted)}
+
+/* Contact / footer */
+.sep{height:1px;background:rgba(255,255,255,.10)}
+footer{border-top:1px solid rgba(255,255,255,.10);padding:40px 0;color:rgba(255,255,255,.70);text-align:left}
+
+/* Reveal animations */
+.reveal{opacity:0; transform:translateY(16px)}
+.reveal.show{opacity:1; transform:translateY(0); transition:opacity .6s ease, transform .6s ease}
+.reveal.delay-1{transition-delay:.06s}
+.reveal.delay-2{transition-delay:.12s}
+.reveal.delay-3{transition-delay:.18s}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <div class="container navbar">
+    <div class="brand">
+      <!-- Wordmark (embedded base64) -->
+      <img
+        src="data:image/png;base64,{{WORDMARK_B64}}"
+        alt="Intangible Partners" />
+      <small>an Ateklo Company</small>
+    </div>
+
+    <nav class="nav">
+      <a href="#how" data-target="how">How it works</a>
+      <a href="#expertise" data-target="expertise">Our Expertise</a>
+      <a href="#outcomes" data-target="outcomes">Our Outcomes</a>
+      <a href="#contact" data-target="contact">Contact</a>
+    </nav>
+
+    <button id="menu-btn" class="menu" aria-label="Open menu">☰</button>
+  </div>
+
+  <!-- Mobile drawer -->
+  <div id="drawer" class="drawer">
+    <div class="panel" role="dialog" aria-modal="true" aria-label="Navigation">
+      <img src="data:image/png;base64,{{WORDMARK_B64}}" alt="Intangible Partners" style="height:26px" />
+      <div class="sep" style="margin-top:12px"></div>
+      <a href="#how">How it works</a>
+      <a href="#expertise">Our Expertise</a>
+      <a href="#outcomes">Our Outcomes</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="glow one"></div>
+  <div class="glow two"></div>
+  <div class="particles" aria-hidden="true"></div>
+
+  <div class="container hero-inner">
+    <!-- IP mark (embedded base64) -->
+    <img class="logo reveal" src="data:image/png;base64,{{MARK_B64}}" alt="IP" />
+    <h1 class="reveal delay-1">
+      We are building an <span class="underline">Intangible workforce</span>
+    </h1>
+    <h2 class="reveal delay-2">
+      that <span class="underline">Partners</span> with companies to improve operational efficiency, productivity, and value creation
+    </h2>
+    <div class="cta reveal delay-3">
+      <a href="#contact" class="btn">Work With Us</a>
+    </div>
+  </div>
+</section>
+
+<main>
+
+  <!-- How it works -->
+  <section id="how" class="section">
+    <div class="container">
+      <h3 class="reveal">How it works</h3>
+      <p class="lead reveal delay-1">
+        <strong>Step One:</strong> Deploy a human to map operations and identify opportunity areas.<br><strong>Step Two:</strong> Find the area with the highest value potential.<br><strong>Step Three:</strong> Build and implement your digital workforce.
+      </p>
+    </div>
+  </section>
+
+  <!-- Our Expertise -->
+  <section id="expertise" class="section">
+    <div class="container">
+      <h3 class="reveal">Our Expertise</h3>
+      <p class="lead reveal delay-1">AI Agents · Automations · Orchestration</p>
+
+      <div class="grid cols-3" style="margin-top:24px">
+      <div class="grid cols-3" style="margin-top:24px">
+        <div class="card reveal">
+          <div class="ch">
+            <div style="display:flex;align-items:center;gap:12px">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="5" stroke="white" stroke-width="1.6" opacity=".85"></rect>
+                <circle cx="12" cy="12" r="4" fill="white"></circle>
+              </svg>
+              <h4 style="margin:0">AI Agents</h4>
+            </div>
+          </div>
+          <div class="ct">
+            <ul>
+              <li>Configurable, role-based assistants</li>
+              <li>Execute tasks end-to-end</li>
+              <li>Human-level performance, super-human scale</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card reveal delay-1">
+          <div class="ch">
+            <div style="display:flex;align-items:center;gap:12px">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <rect x="4" y="4" width="16" height="16" rx="4" stroke="white" stroke-width="1.6" opacity=".85"></rect>
+                <path d="M7 12h10M12 7v10" stroke="white" stroke-width="1.8" stroke-linecap="round"></path>
+              </svg>
+              <h4 style="margin:0">Automations</h4>
+            </div>
+          </div>
+          <div class="ct">
+            <ul>
+              <li>Remove manual steps & cut cycle time</li>
+              <li>Reduce errors & improve consistency</li>
+              <li>Integrate with your existing tools</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card reveal delay-2">
+          <div class="ch">
+            <div style="display:flex;align-items:center;gap:12px">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <circle cx="12" cy="12" r="7" stroke="white" stroke-width="1.6" opacity=".85"></circle>
+                <circle cx="12" cy="5" r="1.8" fill="white"></circle>
+                <circle cx="19" cy="12" r="1.8" fill="white"></circle>
+                <circle cx="12" cy="19" r="1.8" fill="white"></circle>
+                <circle cx="5" cy="12" r="1.8" fill="white"></circle>
+              </svg>
+              <h4 style="margin:0">Orchestration Infra</h4>
+            </div>
+          </div>
+          <div class="ct">
+            <ul>
+              <li>Secure infrastructure connecting data, tools & teams</li>
+              <li>Observability & controls built-in</li>
+              <li>Designed to scale with your business</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+</div>
+    </div>
+  </section>
+
+  <!-- Our Outcomes -->
+  <section id="outcomes" class="section">
+    <div class="container">
+      <h3 class="reveal">Our Outcomes</h3>
+      <div class="grid cols-3" style="margin-top:24px">
+      <div class="grid cols-3" style="margin-top:24px">
+        <div class="card reveal">
+          <div class="ch"><h4>Admin Efficiency</h4></div>
+          <div class="ct">
+            <ul>
+              <li>Up to 60% reduction in admin tasks*</li>
+              <li>Improved accuracy & compliance</li>
+              <li>Fewer bottlenecks, happier teams</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card reveal delay-1">
+          <div class="ch"><h4>ROI</h4></div>
+          <div class="ct">
+            <ul>
+              <li>4× return on investment*</li>
+              <li>Faster time-to-value</li>
+              <li>Clear metrics & dashboards</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card reveal delay-2">
+          <div class="ch"><h4>Growth</h4></div>
+          <div class="ct">
+            <ul>
+              <li>6× faster lead generation*</li>
+              <li>Higher conversion with automation</li>
+              <li>Repeatable, scalable systems</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <p class="lead" style="margin-top:12px;font-size:12px;color:var(--muted2)">*Replace with your own customer case studies and metrics.</p>
+</div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section" style="border-top:1px solid rgba(255,255,255,.10)">
+    <div class="container">
+      <div class="sep"></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:24px;flex-wrap:wrap">
+        <div class="reveal">Contact</div>
+        <a class="btn reveal delay-1" href="mailto:info@intangiblepartners.com">Work With Us</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">© <span id="year"></span> Intangible Partners</div>
+</footer>
+
+<script>
+/* --- Year --- */
+document.getElementById('year').textContent = new Date().getFullYear();
+
+/* --- Mobile drawer --- */
+const menuBtn = document.getElementById('menu-btn');
+const drawer = document.getElementById('drawer');
+menuBtn.addEventListener('click', ()=> drawer.classList.add('open'));
+drawer.addEventListener('click', ()=> drawer.classList.remove('open'));
+drawer.querySelector('.panel').addEventListener('click', e=> e.stopPropagation());
+
+/* --- Particles --- */
+const particles = document.querySelector('.particles');
+for(let i=0;i<14;i++){
+  const s = document.createElement('span');
+  s.style.position='absolute';
+  s.style.width='2px'; s.style.height='2px';
+  s.style.borderRadius='9999px';
+  s.style.background='rgba(255,255,255,.6)';
+  s.style.top = ((i*53)%100)+'%';
+  s.style.left = ((i*37)%100)+'%';
+  s.style.filter='blur(.5px)';
+  particles.appendChild(s);
+
+  const dur = 6000 + (i%5)*1000;
+  const delay = i*200;
+  s.animate(
+    [{opacity:0, transform:'translateY(0px)'},
+     {opacity:1, transform:'translateY(-20px)'},
+     {opacity:0, transform:'translateY(0px)'}],
+    {duration:dur, delay, iterations:Infinity, easing:'ease-in-out'}
+  );
+}
+
+/* --- Aura parallax --- */
+const glow1 = document.querySelector('.glow.one');
+const glow2 = document.querySelector('.glow.two');
+window.addEventListener('scroll', ()=>{
+  const y = window.scrollY;
+  glow1.style.transform = `translate(-50%, ${Math.max(-200, -y*0.07)}px)`;
+  glow2.style.transform = `translate(0, ${Math.min(200, y*0.05)}px)`;
+});
+
+/* --- Reveal on scroll --- */
+const reveals = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('show');
+    }
+  });
+},{rootMargin:'-15% 0px -10% 0px', threshold:[0, .15, .4, .7, 1]});
+reveals.forEach(node=> io.observe(node));
+
+/* --- Active section glow --- */
+const navLinks = document.querySelectorAll('nav a[data-target], header .nav a');
+const ids = ['how','expertise','outcomes','contact'];
+const sections = ids.map(id=> document.getElementById(id));
+const io2 = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      const id = entry.target.id;
+      navLinks.forEach(a => {
+        const href = (a.getAttribute('href')||'').replace('#','');
+        const dt = a.dataset.target || href;
+        a.classList.toggle('active', dt===id);
+      });
+    }
+  });
+},{rootMargin:'-40% 0px -50% 0px', threshold:[0,.25,.5,.75,1]});
+sections.forEach(sec=> io2.observe(sec));
+</script>
+
+</body>
+</html>
