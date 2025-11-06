@@ -7,25 +7,25 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     /* GLOBAL PARALLAX VIDEO (fixed behind whole site) */
-    .site-video{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;opacity:.24}
+    .site-video{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;opacity:.22}
     .site-overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:-1}
 
-    /* FLIP CARDS (stable, now smaller height) */
+    /* FLIP CARDS (stable, compact) */
     .flip-wrap{perspective:1200px}
-    .flip{position:relative;width:100%;height:11rem;transform-style:preserve-3d;transition:transform .6s cubic-bezier(.42,0,.19,1.32)}
+    .flip{position:relative;width:100%;height:10rem;transform-style:preserve-3d;transition:transform .6s cubic-bezier(.42,0,.19,1.32)}
     .flip:hover{transform:rotateY(180deg)}
     .flip.flipped{transform:rotateY(180deg)}
-    .flip-face{position:absolute;inset:0;border-radius:.75rem;backface-visibility:hidden;display:flex;align-items:center;justify-content:center;text-align:center;padding:1rem}
+    .flip-face{position:absolute;inset:0;border-radius:.75rem;backface-visibility:hidden;display:flex;align-items:center;justify-content:center;text-align:center;padding:.9rem}
     .flip-back{transform:rotateY(180deg)}
 
-    /* TIMELINE (restored style), make badges clearly visible */
+    /* TIMELINE (matches your ip_index.html style, compact) */
     .tl{position:relative}
     .tl:before{content:"";position:absolute;left:50%;top:0;bottom:0;width:2px;background:rgba(255,255,255,.12);transform:translateX(-50%)}
-    .tl-item{display:grid;grid-template-columns:1fr 1fr;gap:18px;position:relative;margin-bottom:20px}
-    .tl-badge{position:absolute;left:50%;top:18px;transform:translate(-50%,-50%);background:#ffffff;border-radius:9999px;width:36px;height:36px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 10px rgba(255,255,255,.28);overflow:hidden}
-    .tl-badge img{width:22px;height:22px;object-fit:contain;display:block}
+    .tl-item{display:grid;grid-template-columns:1fr 1fr;gap:18px;position:relative;margin-bottom:18px}
+    .tl-badge{position:absolute;left:50%;top:18px;transform:translate(-50%,-50%);background:#ffffff;border-radius:9999px;width:32px;height:32px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 10px rgba(255,255,255,.28);overflow:hidden}
+    .tl-badge img{width:20px;height:20px;object-fit:contain;display:block}
     .tl-card{background:rgba(17,19,25,.9);border:1px solid rgba(255,255,255,.10);border-radius:.75rem;padding:12px 14px;box-shadow:0 0 14px rgba(102,51,255,.18)}
-    .tl-step{font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:.25rem}
+    .tl-step{font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:.2rem}
 
     @media (max-width: 768px){
       .tl:before{left:24px;transform:none}
@@ -43,49 +43,54 @@
   </video>
   <div class="site-overlay"></div>
 
-  <!-- NAVBAR (logo reduced ~30%) -->
+  <!-- NAVBAR (reduce brand ~30%) -->
   <header class="sticky top-0 z-40 backdrop-blur-md bg-black/30 border-b border-white/10">
-    <div class="max-w-6xl mx-auto px-4 h-[64px] flex items-center">
+    <div class="max-w-6xl mx-auto px-4 h-[60px] flex items-center">
+      <!-- previously ~h-10/12, now reduced for 30% smaller footprint -->
       <img src="assets/ip-wordmark_big_white_cropped_rounded.png" alt="Intangible Partners"
-           class="h-7 md:h-8 lg:h-9 w-auto" />
+           class="h-6 md:h-7 lg:h-8 w-auto" />
       <span class="ml-3 text-[10px] tracking-widest uppercase text-white/70">an Ateklo Company</span>
     </div>
   </header>
 
-  <!-- HERO (centered; smaller logo, shorter copy; removed CTA) -->
-  <section class="relative min-h-[64vh] flex items-center justify-center py-10">
-    <div class="absolute -top-24 left-1/3 w-[28rem] h-[28rem] bg-[rgba(38,99,248,0.22)] blur-[110px] rounded-full pointer-events-none"></div>
-    <div class="absolute -bottom-24 right-1/4 w-[26rem] h-[26rem] bg-[rgba(111,61,244,0.22)] blur-[110px] rounded-full pointer-events-none"></div>
+  <!-- HERO (moved up, smaller logo ~20% less, 2-line headline, no CTA) -->
+  <section class="relative min-h-[56vh] flex items-center justify-center py-6">
+    <div class="absolute -top-24 left-1/3 w-[26rem] h-[26rem] bg-[rgba(38,99,248,0.2)] blur-[100px] rounded-full pointer-events-none"></div>
+    <div class="absolute -bottom-20 right-1/4 w-[24rem] h-[24rem] bg-[rgba(111,61,244,0.2)] blur-[100px] rounded-full pointer-events-none"></div>
 
     <div class="relative z-10 text-center px-6 max-w-4xl">
-      <!-- IP SMILE (50% smaller now) with white plate -->
-      <div class="inline-flex items-center justify-center bg-white rounded-2xl p-3 mb-4 shadow-[0_0_12px_rgba(255,255,255,.2)]">
-        <img src="assets/ip-mark.png" alt="IP" class="h-12 w-auto">
+      <!-- IP SMILE (20% smaller than last: h-10 instead of h-12) with white plate -->
+      <div class="inline-flex items-center justify-center bg-white rounded-xl p-2.5 mb-3 shadow-[0_0_10px_rgba(255,255,255,.18)]">
+        <img src="assets/ip-mark.png" alt="IP" class="h-10 w-auto">
       </div>
 
-      <!-- Shorter, tighter headline (aim for ~2 lines on desktop) -->
-      <h1 class="mx-auto max-w-3xl text-2xl md:text-3xl font-semibold leading-snug">
+      <!-- 2-line headline (reduced size) -->
+      <h1 class="mx-auto max-w-4xl text-[22px] md:text-[26px] font-semibold leading-snug tracking-tight">
         We are building an <u>Intangible</u> workforce that <u>Partners</u> with companies to improve operational efficiency, productivity, and value creation.
       </h1>
       <!-- CTA removed as requested -->
     </div>
   </section>
 
-  <!-- CAPABILITIES (flip) — tiles reduced ~30% and compact spacing -->
-  <section class="py-14">
+  <!-- CAPABILITIES HEADER SENTENCE (replaces the old heading) -->
+  <section class="py-10">
     <div class="max-w-6xl mx-auto px-6">
-      <h2 class="text-2xl font-semibold text-center mb-8">Our Core AI Infrastructure Pillars</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <p class="text-center text-base md:text-lg text-white/90 max-w-3xl mx-auto">
+        We aim to deploy a reliable AI workforce, with human-level performance, and super-human intelligence.
+      </p>
+
+      <!-- CAPABILITIES (flip) — tiles smaller, flipped content font larger -->
+      <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-5">
         <!-- AI Agents -->
         <div class="flip-wrap">
           <div class="flip">
             <div class="flip-face bg-neutral-900 border border-white/10">
-              <div class="flex flex-col items-center gap-3">
-                <img src="assets/ai_icon_new.png" class="h-12 w-12" alt="">
-                <div class="text-base font-medium">Custom AI Agents</div>
+              <div class="flex flex-col items-center gap-2.5">
+                <img src="assets/ai_icon_new.png" class="h-10 w-10" alt="">
+                <div class="text-[15px] font-medium">Custom AI Agents</div>
               </div>
             </div>
-            <div class="flip-face flip-back bg-neutral-900 border border-white/10 text-[13px] text-white/80 leading-relaxed">
+            <div class="flip-face flip-back bg-neutral-900 border border-white/10 text-[14.5px] text-white/85 leading-relaxed">
               Intelligent entities designed from the ground up to handle complex, domain-specific tasks and decision-making.
             </div>
           </div>
@@ -94,12 +99,12 @@
         <div class="flip-wrap">
           <div class="flip">
             <div class="flip-face bg-neutral-900 border border-white/10">
-              <div class="flex flex-col items-center gap-3">
-                <img src="assets/automation_icon_new.png" class="h-12 w-12" alt="">
-                <div class="text-base font-medium">Hyper Automation</div>
+              <div class="flex flex-col items-center gap-2.5">
+                <img src="assets/automation_icon_new.png" class="h-10 w-10" alt="">
+                <div class="text-[15px] font-medium">Hyper Automation</div>
               </div>
             </div>
-            <div class="flip-face flip-back bg-neutral-900 border border-white/10 text-[13px] text-white/80 leading-relaxed">
+            <div class="flip-face flip-back bg-neutral-900 border border-white/10 text-[14.5px] text-white/85 leading-relaxed">
               A reliable digital workforce that operates 24/7 — automating entire workflows and eliminating manual administrative burden.
             </div>
           </div>
@@ -108,12 +113,12 @@
         <div class="flip-wrap">
           <div class="flip">
             <div class="flip-face bg-neutral-900 border border-white/10">
-              <div class="flex flex-col items-center gap-3">
-                <img src="assets/orchestration_icon_new.png" class="h-12 w-12" alt="">
-                <div class="text-base font-medium text-center">Orchestration Infrastructure</div>
+              <div class="flex flex-col items-center gap-2.5">
+                <img src="assets/orchestration_icon_new.png" class="h-10 w-10" alt="">
+                <div class="text-[15px] font-medium text-center">Orchestration Infrastructure</div>
               </div>
             </div>
-            <div class="flip-face flip-back bg-neutral-900 border border-white/10 text-[13px] text-white/80 leading-relaxed">
+            <div class="flip-face flip-back bg-neutral-900 border border-white/10 text-[14.5px] text-white/85 leading-relaxed">
               A robust, scalable platform to monitor, manage, and coordinate thousands of concurrent autonomous agents.
             </div>
           </div>
@@ -122,18 +127,18 @@
     </div>
   </section>
 
-  <!-- TIMELINE (exact style; ensure icons show) — reduced spacing -->
-  <section class="py-14">
+  <!-- OUR METHOD (timeline from your older HTML; ensure icons visible; compact spacing) -->
+  <section class="py-12">
     <div class="max-w-6xl mx-auto px-6">
-      <h2 class="text-2xl font-semibold text-center mb-10">Our Method</h2>
+      <h2 class="text-[22px] md:text-2xl font-semibold text-center mb-8">Our Method</h2>
 
       <div class="tl">
         <!-- Row 1 -->
         <div class="tl-item">
           <div class="tl-card">
             <div class="tl-step">STEP ONE</div>
-            <div class="text-lg font-semibold mb-1">Map Operations & Identify Opportunity</div>
-            <p class="text-white/80 text-[13px] leading-relaxed">Deploy a human to map out operations and identify opportunity areas.</p>
+            <div class="text-[18px] font-semibold mb-1">Map Operations & Identify Opportunity</div>
+            <p class="text-white/85 text-[13.5px] leading-relaxed">Deploy a human to map out operations and identify opportunity areas.</p>
           </div>
           <div></div>
           <div class="tl-badge"><img src="assets/step_icon_1.png" alt="1"></div>
@@ -144,8 +149,8 @@
           <div></div>
           <div class="tl-card">
             <div class="tl-step">STEP TWO</div>
-            <div class="text-lg font-semibold mb-1">Target Highest ROI</div>
-            <p class="text-white/80 text-[13px] leading-relaxed">Find the area of most value potential.</p>
+            <div class="text-[18px] font-semibold mb-1">Target Highest ROI</div>
+            <p class="text-white/85 text-[13.5px] leading-relaxed">Find the area of most value potential.</p>
           </div>
           <div class="tl-badge"><img src="assets/step_icon_2.png" alt="2"></div>
         </div>
@@ -154,8 +159,8 @@
         <div class="tl-item">
           <div class="tl-card">
             <div class="tl-step">STEP THREE</div>
-            <div class="text-lg font-semibold mb-1">Build & Implement Digital Workforce</div>
-            <p class="text-white/80 text-[13px] leading-relaxed">Begin building and implementing your digital workforce.</p>
+            <div class="text-[18px] font-semibold mb-1">Build & Implement Digital Workforce</div>
+            <p class="text-white/85 text-[13.5px] leading-relaxed">Begin building and implementing your digital workforce.</p>
           </div>
           <div></div>
           <div class="tl-badge"><img src="assets/step_icon_3.png" alt="3"></div>
@@ -164,48 +169,55 @@
     </div>
   </section>
 
-  <!-- OUTCOMES (flip metrics) — smaller tiles -->
-  <section class="py-14">
+  <!-- OUTCOMES (bigger headline; big metric front, one sentence back; smaller tiles) -->
+  <section class="py-12">
     <div class="max-w-6xl mx-auto px-6">
-      <h2 class="text-2xl font-semibold text-center mb-10">Proven Outcomes</h2>
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+      <h2 class="text-[22px] md:text-2xl font-semibold text-center mb-8">
+        Proof of Value — Validated AI Performance Metrics
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-5">
+        <!-- 60% -->
         <div class="flip-wrap">
           <div class="flip">
             <div class="flip-face bg-neutral-900 border border-white/10">
-              <div class="text-4xl font-extrabold text-sky-400 drop-shadow-[0_0_6px_rgba(120,188,255,0.22)]">60%</div>
+              <div class="text-[38px] font-extrabold text-sky-400 drop-shadow-[0_0_6px_rgba(120,188,255,0.2)]">60%</div>
             </div>
-            <div class="flip-face flip-back bg-neutral-900 border border-white/10 text-[13px] text-white/80 leading-relaxed">
-              Reduction of repetitive manual work by automating routine administrative workflows.
+            <div class="flip-face flip-back bg-neutral-900 border border-white/10 text-[14.5px] text-white/85 leading-relaxed">
+              Reduced repetitive manual work by replacing routine admin workflows with autonomous execution.
             </div>
           </div>
         </div>
+        <!-- 4x -->
         <div class="flip-wrap">
           <div class="flip">
             <div class="flip-face bg-neutral-900 border border-white/10">
-              <div class="text-4xl font-extrabold text-sky-400 drop-shadow-[0_0_6px_rgba(120,188,255,0.22)]">4×</div>
+              <div class="text-[38px] font-extrabold text-sky-400 drop-shadow-[0_0_6px_rgba(120,188,255,0.2)]">4×</div>
             </div>
-            <div class="flip-face flip-back bg-neutral-900 border border-white/10 text-[13px] text-white/80 leading-relaxed">
-              Return on investment through compound efficiency and throughput.
+            <div class="flip-face flip-back bg-neutral-900 border border-white/10 text-[14.5px] text-white/85 leading-relaxed">
+              Net positive ROI as efficiency compounds across operations within the first deployment cycles.
             </div>
           </div>
         </div>
+        <!-- 6x -->
         <div class="flip-wrap">
           <div class="flip">
             <div class="flip-face bg-neutral-900 border border-white/10">
-              <div class="text-4xl font-extrabold text-sky-400 drop-shadow-[0_0_6px_rgba(120,188,255,0.22)]">6×</div>
+              <div class="text-[38px] font-extrabold text-sky-400 drop-shadow-[0_0_6px_rgba(120,188,255,0.2)]">6×</div>
             </div>
-            <div class="flip-face flip-back bg-neutral-900 border border-white/10 text-[13px] text-white/80 leading-relaxed">
-              Faster lead generation via agentic qualification, prioritization, and routing.
+            <div class="flip-face flip-back bg-neutral-900 border border-white/10 text-[14.5px] text-white/85 leading-relaxed">
+              Accelerated pipeline velocity via agentic qualification, prioritization, and routing.
             </div>
           </div>
         </div>
+        <!-- 40%+ -->
         <div class="flip-wrap">
           <div class="flip">
             <div class="flip-face bg-neutral-900 border border-white/10">
-              <div class="text-4xl font-extrabold text-sky-400 drop-shadow-[0_0_6px_rgba(120,188,255,0.22)]">40%+</div>
+              <div class="text-[38px] font-extrabold text-sky-400 drop-shadow-[0_0_6px_rgba(120,188,255,0.2)]">40%+</div>
             </div>
-            <div class="flip-face flip-back bg-neutral-900 border border-white/10 text-[13px] text-white/80 leading-relaxed">
-              Measurable improvements validated by customer results and case studies.
+            <div class="flip-face flip-back bg-neutral-900 border border-white/10 text-[14.5px] text-white/85 leading-relaxed">
+              Consistent improvements across cost, time-to-completion, and execution quality.
             </div>
           </div>
         </div>
@@ -213,38 +225,39 @@
     </div>
   </section>
 
-  <!-- WHO WE SERVE (flip) — smaller tiles -->
-  <section class="py-14">
+  <!-- WHO WE SERVE (flip, smaller tiles; larger back text) -->
+  <section class="py-12">
     <div class="max-w-6xl mx-auto px-6">
-      <h2 class="text-2xl font-semibold text-center mb-10">Who We Serve</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <h2 class="text-[22px] md:text-2xl font-semibold text-center mb-8">Who We Serve</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
         <div class="flip-wrap"><div class="flip">
-          <div class="flip-face bg-neutral-900 border border-white/10 text-base font-semibold">Startups</div>
-          <div class="flip-face flip-back bg-neutral-900 border border-white/10 text-[13px] text-white/80 leading-relaxed">
+          <div class="flip-face bg-neutral-900 border border-white/10 text-[15px] font-semibold">Startups</div>
+          <div class="flip-face flip-back bg-neutral-900 border border-white/10 text-[14.5px] text-white/85 leading-relaxed">
             Give small teams leverage to operate like larger organizations without increasing headcount.
           </div>
         </div></div>
         <div class="flip-wrap"><div class="flip">
-          <div class="flip-face bg-neutral-900 border border-white/10 text-base font-semibold">SMBs</div>
-          <div class="flip-face flip-back bg-neutral-900 border border-white/10 text-[13px] text-white/80 leading-relaxed">
+          <div class="flip-face bg-neutral-900 border border-white/10 text-[15px] font-semibold">SMBs</div>
+          <div class="flip-face flip-back bg-neutral-900 border border-white/10 text-[14.5px] text-white/85 leading-relaxed">
             Drive operational efficiency where resources are limited and value creation matters most.
           </div>
         </div></div>
         <div class="flip-wrap"><div class="flip">
-          <div class="flip-face bg-neutral-900 border border-white/10 text-base font-semibold">VC &amp; PE</div>
-          <div class="flip-face flip-back bg-neutral-900 border border-white/10 text-[13px] text-white/80 leading-relaxed">
-            Unlock hidden value inside portfolios by accelerating operational improvement across companies.
+          <div class="flip-face bg-neutral-900 border border-white/10 text-[15px] font-semibold">VC &amp; PE</div>
+          <div class="flip-face flip-back bg-neutral-900 border border-white/10 text-[14.5px] text-white/85 leading-relaxed">
+            Unlock hidden portfolio value by accelerating operational improvement across companies.
           </div>
         </div></div>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT (unchanged, compact) -->
-  <section id="contact" class="py-14">
+  <!-- CONTACT (compact) -->
+  <section id="contact" class="py-10">
     <div class="max-w-4xl mx-auto px-6 text-center">
-      <h2 class="text-2xl font-semibold mb-4">Contact</h2>
-      <p class="mb-6 text-white/90">Are you ready to start actually realizing the value of AI? Let’s get started — click here to contact us.</p>
+      <h2 class="text-[22px] md:text-2xl font-semibold mb-4">Contact</h2>
+      <p class="mb-5 text-white/90">Are you ready to start actually realizing the value of AI? Let’s get started — click here to contact us.</p>
       <a href="mailto:info@intangiblepartners.com"
          class="inline-block rounded-xl px-7 py-3 bg-white text-black font-semibold border border-white/20 hover:bg-white/90">
         info@intangiblepartners.com
