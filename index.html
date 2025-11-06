@@ -43,43 +43,41 @@
   </video>
   <div class="site-overlay"></div>
 
-  <!-- NAVBAR (reduce brand ~30%) -->
+  <!-- NAVBAR (reduce brand ~30% + left shift) -->
   <header class="sticky top-0 z-40 backdrop-blur-md bg-black/30 border-b border-white/10">
     <div class="max-w-6xl mx-auto px-4 h-[60px] flex items-center">
-      <!-- previously ~h-10/12, now reduced for 30% smaller footprint -->
       <img src="assets/ip-wordmark_big_white_cropped_rounded.png" alt="Intangible Partners"
-           class="h-6 md:h-7 lg:h-8 w-auto" />
+           class="h-6 md:h-7 lg:h-8 w-auto -ml-16" />
       <span class="ml-3 text-[10px] tracking-widest uppercase text-white/70">an Ateklo Company</span>
     </div>
   </header>
 
-  <!-- HERO (moved up, smaller logo ~20% less, 2-line headline, no CTA) -->
+  <!-- HERO (moved up, smaller logo ~10% less, 2-line headline, no CTA) -->
   <section class="relative min-h-[56vh] flex items-center justify-center py-6">
     <div class="absolute -top-24 left-1/3 w-[26rem] h-[26rem] bg-[rgba(38,99,248,0.2)] blur-[100px] rounded-full pointer-events-none"></div>
     <div class="absolute -bottom-20 right-1/4 w-[24rem] h-[24rem] bg-[rgba(111,61,244,0.2)] blur-[100px] rounded-full pointer-events-none"></div>
 
     <div class="relative z-10 text-center px-6 max-w-4xl">
-      <!-- IP SMILE (20% smaller than last: h-10 instead of h-12) with white plate -->
+      <!-- IP SMILE with white plate -->
       <div class="inline-flex items-center justify-center bg-white rounded-xl p-2.5 mb-3 shadow-[0_0_10px_rgba(255,255,255,.18)]">
-        <img src="assets/ip-mark.png" alt="IP" class="h-10 w-auto">
+        <img src="assets/ip-mark.png" alt="IP" class="h-9 w-auto">
       </div>
 
-      <!-- 2-line headline (reduced size) -->
+      <!-- 2-line headline -->
       <h1 class="mx-auto max-w-4xl text-[22px] md:text-[26px] font-semibold leading-snug tracking-tight">
         We are building an <u>Intangible</u> workforce that <u>Partners</u> with companies to improve operational efficiency, productivity, and value creation.
       </h1>
-      <!-- CTA removed as requested -->
     </div>
   </section>
 
-  <!-- CAPABILITIES HEADER SENTENCE (replaces the old heading) -->
+  <!-- CAPABILITIES HEADER SENTENCE -->
   <section class="py-10">
     <div class="max-w-6xl mx-auto px-6">
       <p class="text-center text-base md:text-lg text-white/90 max-w-3xl mx-auto">
         We aim to deploy a reliable AI workforce, with human-level performance, and super-human intelligence.
       </p>
 
-      <!-- CAPABILITIES (flip) — tiles smaller, flipped content font larger -->
+      <!-- CAPABILITIES (flip) -->
       <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-5">
         <!-- AI Agents -->
         <div class="flip-wrap">
@@ -127,7 +125,7 @@
     </div>
   </section>
 
-  <!-- OUR METHOD (timeline from your older HTML; ensure icons visible; compact spacing) -->
+  <!-- OUR METHOD (timeline) -->
   <section class="py-12">
     <div class="max-w-6xl mx-auto px-6">
       <h2 class="text-[22px] md:text-2xl font-semibold text-center mb-8">Our Method</h2>
@@ -169,7 +167,7 @@
     </div>
   </section>
 
-  <!-- OUTCOMES (bigger headline; big metric front, one sentence back; smaller tiles) -->
+  <!-- OUTCOMES (big metric + one-line caption on front, sentence on back) -->
   <section class="py-12">
     <div class="max-w-6xl mx-auto px-6">
       <h2 class="text-[22px] md:text-2xl font-semibold text-center mb-8">
@@ -182,6 +180,7 @@
           <div class="flip">
             <div class="flip-face bg-neutral-900 border border-white/10">
               <div class="text-[38px] font-extrabold text-sky-400 drop-shadow-[0_0_6px_rgba(120,188,255,0.2)]">60%</div>
+              <div class="mt-1 text-[12px] text-white/80">Less manual work via autonomous workflows.</div>
             </div>
             <div class="flip-face flip-back bg-neutral-900 border border-white/10 text-[14.5px] text-white/85 leading-relaxed">
               Reduced repetitive manual work by replacing routine admin workflows with autonomous execution.
@@ -193,6 +192,7 @@
           <div class="flip">
             <div class="flip-face bg-neutral-900 border border-white/10">
               <div class="text-[38px] font-extrabold text-sky-400 drop-shadow-[0_0_6px_rgba(120,188,255,0.2)]">4×</div>
+              <div class="mt-1 text-[12px] text-white/80">Compounding ROI from end-to-end automation.</div>
             </div>
             <div class="flip-face flip-back bg-neutral-900 border border-white/10 text-[14.5px] text-white/85 leading-relaxed">
               Net positive ROI as efficiency compounds across operations within the first deployment cycles.
@@ -204,6 +204,7 @@
           <div class="flip">
             <div class="flip-face bg-neutral-900 border border-white/10">
               <div class="text-[38px] font-extrabold text-sky-400 drop-shadow-[0_0_6px_rgba(120,188,255,0.2)]">6×</div>
+              <div class="mt-1 text-[12px] text-white/80">Faster pipeline velocity and throughput.</div>
             </div>
             <div class="flip-face flip-back bg-neutral-900 border border-white/10 text-[14.5px] text-white/85 leading-relaxed">
               Accelerated pipeline velocity via agentic qualification, prioritization, and routing.
@@ -215,6 +216,7 @@
           <div class="flip">
             <div class="flip-face bg-neutral-900 border border-white/10">
               <div class="text-[38px] font-extrabold text-sky-400 drop-shadow-[0_0_6px_rgba(120,188,255,0.2)]">40%+</div>
+              <div class="mt-1 text-[12px] text-white/80">Lower cost with higher execution quality.</div>
             </div>
             <div class="flip-face flip-back bg-neutral-900 border border-white/10 text-[14.5px] text-white/85 leading-relaxed">
               Consistent improvements across cost, time-to-completion, and execution quality.
@@ -225,26 +227,26 @@
     </div>
   </section>
 
-  <!-- WHO WE SERVE (flip, smaller tiles; larger back text) -->
+  <!-- WHO WE SERVE (front caption lines added) -->
   <section class="py-12">
     <div class="max-w-6xl mx-auto px-6">
       <h2 class="text-[22px] md:text-2xl font-semibold text-center mb-8">Who We Serve</h2>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
         <div class="flip-wrap"><div class="flip">
-          <div class="flip-face bg-neutral-900 border border-white/10 text-[15px] font-semibold">Startups</div>
+          <div class="flip-face bg-neutral-900 border border-white/10 text-[15px] font-semibold">Startups<div class="mt-1 text-[12px] text-white/80 font-normal"> Operate like a larger team without headcount.</div></div>
           <div class="flip-face flip-back bg-neutral-900 border border-white/10 text-[14.5px] text-white/85 leading-relaxed">
             Give small teams leverage to operate like larger organizations without increasing headcount.
           </div>
         </div></div>
         <div class="flip-wrap"><div class="flip">
-          <div class="flip-face bg-neutral-900 border border-white/10 text-[15px] font-semibold">SMBs</div>
+          <div class="flip-face bg-neutral-900 border border-white/10 text-[15px] font-semibold">SMBs<div class="mt-1 text-[12px] text-white/80 font-normal"> Do more with less through automation.</div></div>
           <div class="flip-face flip-back bg-neutral-900 border border-white/10 text-[14.5px] text-white/85 leading-relaxed">
             Drive operational efficiency where resources are limited and value creation matters most.
           </div>
         </div></div>
         <div class="flip-wrap"><div class="flip">
-          <div class="flip-face bg-neutral-900 border border-white/10 text-[15px] font-semibold">VC &amp; PE</div>
+          <div class="flip-face bg-neutral-900 border border-white/10 text-[15px] font-semibold">VC &amp; PE<div class="mt-1 text-[12px] text-white/80 font-normal"> Accelerate portfolio value creation.</div></div>
           <div class="flip-face flip-back bg-neutral-900 border border-white/10 text-[14.5px] text-white/85 leading-relaxed">
             Unlock hidden portfolio value by accelerating operational improvement across companies.
           </div>
@@ -253,11 +255,11 @@
     </div>
   </section>
 
-  <!-- CONTACT (compact) -->
+  <!-- CONTACT -->
   <section id="contact" class="py-10">
     <div class="max-w-4xl mx-auto px-6 text-center">
       <h2 class="text-[22px] md:text-2xl font-semibold mb-4">Contact</h2>
-      <p class="mb-5 text-white/90">Are you ready to start actually realizing the value of AI? Let’s get started — click here to contact us.</p>
+      <p class="mb-5 text-white/90">Ready to realize AI value? Let’s get started.</p>
       <a href="mailto:info@intangiblepartners.com"
          class="inline-block rounded-xl px-7 py-3 bg-white text-black font-semibold border border-white/20 hover:bg-white/90">
         info@intangiblepartners.com
@@ -271,9 +273,7 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
-    // Mobile tap flip
     document.querySelectorAll('.flip').forEach(el=>el.addEventListener('click',()=>el.classList.toggle('flipped')));
-    // Slow global video
     const v=document.querySelector('.site-video'); function rate(){try{v.playbackRate=.5}catch(_){}} v?.addEventListener('loadedmetadata',rate); v?.addEventListener('play',rate); rate();
   </script>
 </body>
