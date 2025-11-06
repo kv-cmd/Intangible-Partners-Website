@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Intangible Partners</title>
-  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
@@ -14,16 +14,12 @@
   <div class="glow two"></div>
   <div class="particles" aria-hidden="true"></div>
   <div class="container hero-inner">
-    <!-- Logo -->
-    <img class="logo reveal" src="ip-smile.png" alt="IP Smile Logo" style="max-width: 140px; margin-bottom: 10px;"/>
-
-    <!-- Hero Headings -->
+    <img class="logo reveal" src="assets/ip-smile.png" alt="IP Smile Logo" style="max-width: 140px; margin-bottom: 10px;"/>
     <h1 class="reveal delay-1">
       We aim to deploy a reliable AI workforce, with human-level performance, and super-human intelligence.
     </h1>
-    <img src="ip-name.png" alt="Intangible Partners" style="max-width: 320px;" class="reveal delay-2"/>
+    <img src="assets/ip-name.png" alt="Intangible Partners" style="max-width: 320px;" class="reveal delay-2"/>
     <p class="reveal delay-3" style="font-size: 14px; margin-top: 4px; color: #999;">An Ateklo Company</p>
-    
     <div class="cta reveal delay-4">
       <a href="#contact" class="btn">Work With Us</a>
     </div>
@@ -35,32 +31,32 @@
   <div class="container">
     <div class="reveal delay-1" style="margin-top:20px; text-align:center">
       <video controls style="max-width:100%; border-radius:12px">
-        <source src="video.mp4" type="video/mp4" />
+        <source src="assets/video.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
     </div>
   </div>
 </section>
 
-<!-- 3 Graphics Below Video -->
+<!-- Graphics Section -->
 <section class="section">
   <div class="container">
     <div class="grid cols-3" style="margin-top: 32px;">
-      <div class="card reveal"><img src="graphic1.png" alt="Graphic 1" style="width:100%; border-radius:12px"/></div>
-      <div class="card reveal delay-1"><img src="graphic2.png" alt="Graphic 2" style="width:100%; border-radius:12px"/></div>
-      <div class="card reveal delay-2"><img src="graphic3.png" alt="Graphic 3" style="width:100%; border-radius:12px"/></div>
+      <div class="card reveal"><img src="assets/graphic1.png" alt="Graphic 1" style="width:100%; border-radius:12px"/></div>
+      <div class="card reveal delay-1"><img src="assets/graphic2.png" alt="Graphic 2" style="width:100%; border-radius:12px"/></div>
+      <div class="card reveal delay-2"><img src="assets/graphic3.png" alt="Graphic 3" style="width:100%; border-radius:12px"/></div>
     </div>
   </div>
 </section>
 
-<!-- How It Works (Steps) -->
+<!-- How It Works -->
 <section class="section">
   <div class="container">
     <h3 class="reveal">How It Works</h3>
     <div class="grid cols-3" style="margin-top:24px">
-      <div class="card reveal"><img src="step1.png" alt="Step 1"/></div>
-      <div class="card reveal delay-1"><img src="step2.png" alt="Step 2"/></div>
-      <div class="card reveal delay-2"><img src="step3.png" alt="Step 3"/></div>
+      <div class="card reveal"><img src="assets/step1.png" alt="Step 1"/></div>
+      <div class="card reveal delay-1"><img src="assets/step2.png" alt="Step 2"/></div>
+      <div class="card reveal delay-2"><img src="assets/step3.png" alt="Step 3"/></div>
     </div>
   </div>
 </section>
