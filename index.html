@@ -1,259 +1,283 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Intangible Partners</title>
-<script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Intangible Partners</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Flip card utility (stable, 3D, small) */
+    .flip-wrap { perspective: 1200px; }
+    .flip {
+      position: relative; height: 16rem; width: 100%;
+      transform-style: preserve-3d; transition: transform .6s cubic-bezier(.42,0,.19,1.32);
+    }
+    .flip:hover { transform: rotateY(180deg); }
+    .flip.flipped { transform: rotateY(180deg); }
+    .flip-face {
+      position: absolute; inset: 0; border-radius: .75rem; backface-visibility: hidden;
+      display: flex; align-items: center; justify-content: center; text-align: center; padding: 1.25rem;
+    }
+    .flip-back { transform: rotateY(180deg); }
+    /* Global fixed video (parallax) */
+    .site-video {
+      position: fixed; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; opacity: .28;
+    }
+    .site-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.45); z-index: -1; }
+  </style>
 </head>
 <body class="bg-black text-white antialiased">
 
-<!-- HERO -->
-<section class="relative h-screen w-full overflow-hidden flex items-center justify-center">
-
-  <!-- BG VIDEO -->
-  <video class="absolute inset-0 w-full h-full object-cover opacity-30" autoplay muted loop playsinline>
-    <source src="assets/Hero%20Video.mp4" type="video/mp4">
+  <!-- GLOBAL BACKGROUND VIDEO (parallax across whole page) -->
+  <video class="site-video" autoplay muted loop playsinline>
+    <source src="assets/Hero%20Video.mp4" type="video/mp4" />
   </video>
+  <div class="site-overlay"></div>
 
-  <!-- gradient overlay (optional subtle darken) -->
-  <div class="absolute inset-0 bg-black/40"></div>
+  <!-- NAV -->
+  <header class="sticky top-0 z-40 backdrop-blur-md bg-black/30 border-b border-white/10">
+    <div class="max-w-6xl mx-auto px-4 h-20 flex items-center">
+      <img src="assets/ip-wordmark_big_white_cropped_rounded.png" alt="Intangible Partners"
+           class="h-[64px] md:h-[80px] lg:h-[96px] w-auto" />
+      <span class="ml-3 text-xs text-white/70 tracking-widest uppercase">an Ateklo Company</span>
+    </div>
+  </header>
 
-  <!-- HEADER BRAND -->
-  <div class="absolute top-0 left-0 p-6 z-20 flex items-center">
-     <img src="assets/ip-wordmark_big_white.png" class="h-[160px] w-auto" />
-  </div>
+  <!-- HERO (centered) -->
+  <section class="relative flex items-center justify-center min-h-[78vh]">
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="absolute -top-24 left-1/3 w-[36rem] h-[36rem] bg-[rgba(38,99,248,0.28)] blur-[120px] rounded-full"></div>
+      <div class="absolute -bottom-24 right-1/4 w-[32rem] h-[32rem] bg-[rgba(111,61,244,0.28)] blur-[120px] rounded-full"></div>
+    </div>
 
-  <!-- HERO CONTENT CENTER -->
-  <div class="relative z-20 flex flex-col items-center text-center px-4 max-w-4xl space-y-6">
-
-      <!-- IP MARK CENTER -->
-      <img src="assets/ip-mark.png" class="h-36 w-auto mb-4" />
-
-      <h1 class="text-4xl md:text-5xl font-semibold leading-tight">
-        We aim to build the world’s most powerful AI infrastructure layer
+    <div class="relative z-10 text-center px-6 max-w-4xl">
+      <!-- HERO CENTER: use same new rounded wordmark -->
+      <div class="inline-block mb-6">
+        <img src="assets/ip-wordmark_big_white_cropped_rounded.png" class="h-28 md:h-32 w-auto" alt="Intangible Partners" />
+      </div>
+      <h1 class="text-3xl md:text-5xl font-semibold leading-tight">
+        We are building an <u>Intangible</u> workforce that <u>Partners</u> with companies to improve
+        operational efficiency, productivity, and value creation.
       </h1>
-
-      <p class="text-xl opacity-90">
-        shaping the future where intelligent systems execute at enterprise scale
-      </p>
-
-  </div>
-
-</section>
-<!-- 3 CORE CAPABILITIES (FLIP TILES) -->
-<section class="py-28 bg-black relative z-20">
-  <div class="max-w-6xl mx-auto px-6">
-    
-    <h2 class="text-3xl font-semibold text-center mb-14">
-      Our Core AI Infrastructure Pillars
-    </h2>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-
-      <!-- AI Agents -->
-      <div class="group relative [perspective:1000px]">
-        <div class="relative h-64 w-full rounded-xl bg-neutral-900 border border-white/10 shadow-xl transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
-          
-          <!-- FRONT -->
-          <div class="absolute inset-0 flex flex-col items-center justify-center p-6 space-y-4 [backface-visibility:hidden]">
-            <img src="assets/ai_icon_new.png" class="h-16 w-16 opacity-95">
-            <h3 class="text-xl font-medium">Custom AI Agents</h3>
-          </div>
-
-          <!-- BACK -->
-          <div class="absolute inset-0 p-6 text-sm leading-relaxed text-center flex items-center justify-center [transform:rotateY(180deg)] [backface-visibility:hidden]">
-            Intelligent entities designed from the ground up to handle complex, domain-specific workflows & decisions.
-          </div>
-
-        </div>
+      <div class="mt-6">
+        <a href="#contact" class="inline-block rounded-xl px-6 py-3 bg-white text-black font-semibold border border-white/20 hover:bg-white/90">
+          Work With Us
+        </a>
       </div>
-
-      <!-- Automation -->
-      <div class="group relative [perspective:1000px]">
-        <div class="relative h-64 w-full rounded-xl bg-neutral-900 border border-white/10 shadow-xl transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
-
-          <!-- FRONT -->
-          <div class="absolute inset-0 flex flex-col items-center justify-center p-6 space-y-4 [backface-visibility:hidden]">
-            <img src="assets/automation_icon_new.png" class="h-16 w-16 opacity-95">
-            <h3 class="text-xl font-medium">Hyper Automation</h3>
-          </div>
-
-          <!-- BACK -->
-          <div class="absolute inset-0 p-6 text-sm leading-relaxed text-center flex items-center justify-center [transform:rotateY(180deg)] [backface-visibility:hidden]">
-            A reliable digital workforce operating 24/7 — automating entire processes & removing administrative burden.
-          </div>
-
-        </div>
-      </div>
-
-      <!-- Orchestration -->
-      <div class="group relative [perspective:1000px]">
-        <div class="relative h-64 w-full rounded-xl bg-neutral-900 border border-white/10 shadow-xl transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
-
-          <!-- FRONT -->
-          <div class="absolute inset-0 flex flex-col items-center justify-center p-6 space-y-4 [backface-visibility:hidden]">
-            <img src="assets/orchestration_icon_new.png" class="h-16 w-16 opacity-95">
-            <h3 class="text-xl font-medium">Orchestration Infrastructure</h3>
-          </div>
-
-          <!-- BACK -->
-          <div class="absolute inset-0 p-6 text-sm leading-relaxed text-center flex items-center justify-center [transform:rotateY(180deg)] [backface-visibility:hidden]">
-            A high-reliability platform to monitor, manage & coordinate thousands of independent autonomous agents.
-          </div>
-
-        </div>
-      </div>
-
     </div>
+  </section>
 
-  </div>
-</section>
-<!-- VERTICAL TIMELINE (3 STEP) -->
-<section class="py-28 bg-black relative z-20">
-  <div class="max-w-4xl mx-auto px-6">
+  <!-- CORE CAPABILITIES (flip tiles with icons on top) -->
+  <section class="relative py-24">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-3xl font-semibold text-center mb-12">Our Core AI Infrastructure Pillars</h2>
 
-    <h2 class="text-3xl font-semibold text-center mb-20">
-      How We Build Intelligence At Enterprise Scale
-    </h2>
-
-    <div class="relative border-l-2 border-white/10 ml-6 space-y-20">
-
-      <!-- STEP 1 -->
-      <div class="relative pl-12">
-        <div class="absolute -left-[14px] top-1 h-6 w-6 rounded-full bg-teal-400 shadow-[0_0_12px_rgba(45,255,227,0.6)]"></div>
-        <h3 class="text-xl font-medium mb-2">Step 1 — Foundational AI Capability Extraction</h3>
-        <p class="text-sm opacity-80 leading-relaxed">
-          We identify the operational reality and isolate core value loops — translating your domain knowledge into structured competency maps.
-        </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- AI Agents -->
+        <div class="flip-wrap">
+          <div class="flip">
+            <div class="flip-face bg-neutral-900 border border-white/10">
+              <div class="flex flex-col items-center gap-4">
+                <img src="assets/ai_icon_new.png" class="h-16 w-16" alt="">
+                <div class="text-lg font-medium">Custom AI Agents</div>
+              </div>
+            </div>
+            <div class="flip-face flip-back bg-neutral-900 border border-white/10 text-sm text-white/80 leading-relaxed">
+              Intelligent entities designed from the ground up to handle complex, domain-specific tasks and decision-making.
+            </div>
+          </div>
+        </div>
+        <!-- Automation -->
+        <div class="flip-wrap">
+          <div class="flip">
+            <div class="flip-face bg-neutral-900 border border-white/10">
+              <div class="flex flex-col items-center gap-4">
+                <img src="assets/automation_icon_new.png" class="h-16 w-16" alt="">
+                <div class="text-lg font-medium">Hyper Automation</div>
+              </div>
+            </div>
+            <div class="flip-face flip-back bg-neutral-900 border border-white/10 text-sm text-white/80 leading-relaxed">
+              A reliable digital workforce that operates 24/7 — automating entire workflows and eliminating manual administrative burden.
+            </div>
+          </div>
+        </div>
+        <!-- Orchestration -->
+        <div class="flip-wrap">
+          <div class="flip">
+            <div class="flip-face bg-neutral-900 border border-white/10">
+              <div class="flex flex-col items-center gap-4">
+                <img src="assets/orchestration_icon_new.png" class="h-16 w-16" alt="">
+                <div class="text-lg font-medium text-center">Orchestration Infrastructure</div>
+              </div>
+            </div>
+            <div class="flip-face flip-back bg-neutral-900 border border-white/10 text-sm text-white/80 leading-relaxed">
+              A robust, scalable platform to monitor, manage, and coordinate thousands of concurrent autonomous agents.
+            </div>
+          </div>
+        </div>
       </div>
-
-      <!-- STEP 2 -->
-      <div class="relative pl-12">
-        <div class="absolute -left-[14px] top-1 h-6 w-6 rounded-full bg-purple-400 shadow-[0_0_12px_rgba(168,128,255,0.6)]"></div>
-        <h3 class="text-xl font-medium mb-2">Step 2 — Autonomous Automation Layer</h3>
-        <p class="text-sm opacity-80 leading-relaxed">
-          We activate autonomous workflow execution — so tasks become self-managing, self-routing & self-correcting without human micro-inputs.
-        </p>
-      </div>
-
-      <!-- STEP 3 -->
-      <div class="relative pl-12">
-        <div class="absolute -left-[14px] top-1 h-6 w-6 rounded-full bg-sky-400 shadow-[0_0_12px_rgba(120,188,255,0.6)]"></div>
-        <h3 class="text-xl font-medium mb-2">Step 3 — Orchestrated Intelligence Network</h3>
-        <p class="text-sm opacity-80 leading-relaxed">
-          We scale from isolated agents → into a synchronized, resilient intelligence fabric coordinating across thousands of actors in real-time.
-        </p>
-      </div>
-
     </div>
+  </section>
 
-  </div>
-</section>
-<!-- OUTCOMES METRICS -->
-<section class="py-28 bg-black relative z-20">
-  <div class="max-w-6xl mx-auto px-6">
-    
-    <h2 class="text-3xl font-semibold text-center mb-16">
-      Proven Outcomes We Deliver
-    </h2>
+  <!-- METHOD / TIMELINE (style inspired by ip_index.html) -->
+  <section class="relative py-24">
+    <div class="max-w-5xl mx-auto px-6">
+      <h2 class="text-3xl font-semibold text-center mb-16">Our Method</h2>
 
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div class="relative">
+        <!-- spine -->
+        <div class="absolute left-5 top-0 bottom-0 w-px bg-white/15"></div>
 
-      <!-- tile -->
-      <div class="flex flex-col items-center text-center bg-neutral-900 border border-white/10 rounded-xl p-8 hover:bg-neutral-800 transition">
-        <div class="text-5xl font-bold text-sky-400 mb-3 drop-shadow-[0_0_10px_rgba(120,188,255,0.3)]">40%+</div>
-        <div class="text-sm opacity-80">
-          Operating Efficiency Lift
+        <!-- step -->
+        <div class="relative pl-16 mb-12">
+          <div class="absolute left-2 top-1.5 h-6 w-6 rounded-full bg-teal-400 shadow-[0_0_10px_rgba(45,255,227,.45)]"></div>
+          <div class="bg-neutral-900 border border-white/10 rounded-xl p-6">
+            <div class="text-xs tracking-widest text-white/60 uppercase mb-2">Step One</div>
+            <div class="text-xl font-semibold mb-1">Map Operations & Identify Opportunity</div>
+            <p class="text-white/80 text-sm">Deploy a human to map out operations and identify opportunity areas.</p>
+          </div>
+        </div>
+
+        <div class="relative pl-16 mb-12">
+          <div class="absolute left-2 top-1.5 h-6 w-6 rounded-full bg-purple-400 shadow-[0_0_10px_rgba(168,128,255,.45)]"></div>
+          <div class="bg-neutral-900 border border-white/10 rounded-xl p-6">
+            <div class="text-xs tracking-widest text-white/60 uppercase mb-2">Step Two</div>
+            <div class="text-xl font-semibold mb-1">Target Highest ROI</div>
+            <p class="text-white/80 text-sm">Find the area of most value potential.</p>
+          </div>
+        </div>
+
+        <div class="relative pl-16">
+          <div class="absolute left-2 top-1.5 h-6 w-6 rounded-full bg-sky-400 shadow-[0_0_10px_rgba(120,188,255,.45)]"></div>
+          <div class="bg-neutral-900 border border-white/10 rounded-xl p-6">
+            <div class="text-xs tracking-widest text-white/60 uppercase mb-2">Step Three</div>
+            <div class="text-xl font-semibold mb-1">Build & Implement Digital Workforce</div>
+            <p class="text-white/80 text-sm">Begin building and implementing your digital workforce.</p>
+          </div>
         </div>
       </div>
-
-      <!-- tile -->
-      <div class="flex flex-col items-center text-center bg-neutral-900 border border-white/10 rounded-xl p-8 hover:bg-neutral-800 transition">
-        <div class="text-5xl font-bold text-sky-400 mb-3 drop-shadow-[0_0_10px_rgba(120,188,255,0.3)]">70%+</div>
-        <div class="text-sm opacity-80">
-          Admin Workload Reduction
-        </div>
-      </div>
-
-      <!-- tile -->
-      <div class="flex flex-col items-center text-center bg-neutral-900 border border-white/10 rounded-xl p-8 hover:bg-neutral-800 transition">
-        <div class="text-5xl font-bold text-sky-400 mb-3 drop-shadow-[0_0_10px_rgba(120,188,255,0.3)]">5x</div>
-        <div class="text-sm opacity-80">
-          Execution Throughput Expansion
-        </div>
-      </div>
-
-      <!-- tile -->
-      <div class="flex flex-col items-center text-center bg-neutral-900 border border-white/10 rounded-xl p-8 hover:bg-neutral-800 transition">
-        <div class="text-5xl font-bold text-sky-400 mb-3 drop-shadow-[0_0_10px_rgba(120,188,255,0.3)]">95%+</div>
-        <div class="text-sm opacity-80">
-          Execution Consistency Accuracy
-        </div>
-      </div>
-
     </div>
+  </section>
 
-  </div>
-</section>
-<!-- WHO WE SERVE -->
-<section class="py-28 bg-black relative z-20">
-  <div class="max-w-6xl mx-auto px-6">
+  <!-- OUTCOMES (flip metrics) -->
+  <section class="relative py-24">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-3xl font-semibold text-center mb-12">Proven Outcomes</h2>
 
-    <h2 class="text-3xl font-semibold text-center mb-16">
-      Who We Serve
-    </h2>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <!-- metric -->
+        <div class="flip-wrap">
+          <div class="flip">
+            <div class="flip-face bg-neutral-900 border border-white/10">
+              <div class="text-5xl font-extrabold text-sky-400 drop-shadow-[0_0_8px_rgba(120,188,255,0.25)]">60%</div>
+            </div>
+            <div class="flip-face flip-back bg-neutral-900 border border-white/10 text-sm text-white/80 leading-relaxed">
+              Reduction of repetitive manual work by automating routine administrative workflows.
+            </div>
+          </div>
+        </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div class="flip-wrap">
+          <div class="flip">
+            <div class="flip-face bg-neutral-900 border border-white/10">
+              <div class="text-5xl font-extrabold text-sky-400 drop-shadow-[0_0_8px_rgba(120,188,255,0.25)]">4×</div>
+            </div>
+            <div class="flip-face flip-back bg-neutral-900 border border-white/10 text-sm text-white/80 leading-relaxed">
+              Return on investment through compound efficiency and throughput.
+            </div>
+          </div>
+        </div>
 
-      <div class="bg-neutral-900 border border-white/10 rounded-xl p-10 text-center hover:bg-neutral-800 transition">
-        <h3 class="text-xl font-medium mb-3">Enterprise AI Leaders</h3>
-        <p class="text-sm opacity-80 leading-relaxed">
-          Building next-gen intelligence fabrics inside complex organizations.
-        </p>
+        <div class="flip-wrap">
+          <div class="flip">
+            <div class="flip-face bg-neutral-900 border border-white/10">
+              <div class="text-5xl font-extrabold text-sky-400 drop-shadow-[0_0_8px_rgba(120,188,255,0.25)]">6×</div>
+            </div>
+            <div class="flip-face flip-back bg-neutral-900 border border-white/10 text-sm text-white/80 leading-relaxed">
+              Faster lead generation via agentic qualification, prioritization, and routing.
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-wrap">
+          <div class="flip">
+            <div class="flip-face bg-neutral-900 border border-white/10">
+              <div class="text-5xl font-extrabold text-sky-400 drop-shadow-[0_0_8px_rgba(120,188,255,0.25)]">40%+</div>
+            </div>
+            <div class="flip-face flip-back bg-neutral-900 border border-white/10 text-sm text-white/80 leading-relaxed">
+              Measurable improvements validated by customer results and case studies.
+            </div>
+          </div>
+        </div>
       </div>
-
-      <div class="bg-neutral-900 border border-white/10 rounded-xl p-10 text-center hover:bg-neutral-800 transition">
-        <h3 class="text-xl font-medium mb-3">Automation Architects</h3>
-        <p class="text-sm opacity-80 leading-relaxed">
-          Replatforming operations from manual workflows into autonomous execution networks.
-        </p>
-      </div>
-
-      <div class="bg-neutral-900 border border-white/10 rounded-xl p-10 text-center hover:bg-neutral-800 transition">
-        <h3 class="text-xl font-medium mb-3">Deep Tech Accelerators</h3>
-        <p class="text-sm opacity-80 leading-relaxed">
-          Scaling applied AI into production-grade, revenue-driving systems.
-        </p>
-      </div>
-
     </div>
-  </div>
-</section>
-<!-- CONTACT -->
-<section class="py-28 bg-black relative z-20">
-  <div class="max-w-4xl mx-auto px-6 text-center">
+  </section>
 
-    <h2 class="text-3xl font-semibold mb-8">
-      Let's Build The Future Together
-    </h2>
+  <!-- WHO WE SERVE (flip tiles) -->
+  <section class="relative py-24">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-3xl font-semibold text-center mb-12">Who We Serve</h2>
 
-    <p class="opacity-80 mb-10">
-      Interested in partnering, deploying enterprise-scale autonomy, or exploring our infrastructure layer?
-    </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="flip-wrap">
+          <div class="flip">
+            <div class="flip-face bg-neutral-900 border border-white/10 text-lg font-semibold">Startups</div>
+            <div class="flip-face flip-back bg-neutral-900 border border-white/10 text-sm text-white/80 leading-relaxed">
+              Give small teams leverage to operate like larger organizations without increasing headcount.
+            </div>
+          </div>
+        </div>
+        <div class="flip-wrap">
+          <div class="flip">
+            <div class="flip-face bg-neutral-900 border border-white/10 text-lg font-semibold">SMBs</div>
+            <div class="flip-face flip-back bg-neutral-900 border border-white/10 text-sm text-white/80 leading-relaxed">
+              Drive operational efficiency where resources are limited and value creation matters most.
+            </div>
+          </div>
+        </div>
+        <div class="flip-wrap">
+          <div class="flip">
+            <div class="flip-face bg-neutral-900 border border-white/10 text-lg font-semibold">VC &amp; PE</div>
+            <div class="flip-face flip-back bg-neutral-900 border border-white/10 text-sm text-white/80 leading-relaxed">
+              Unlock hidden value inside portfolios by accelerating operational improvement across companies.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <a href="mailto:info@intangiblepartners.com" 
-       class="inline-block px-10 py-4 border border-white/20 rounded-full hover:bg-white hover:text-black transition font-medium text-lg">
-      info@intangiblepartners.com
-    </a>
+  <!-- CONTACT -->
+  <section id="contact" class="relative py-24">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="text-3xl font-semibold mb-6">Contact</h2>
+      <p class="mb-8 text-white/90">Are you ready to start actually realizing the value of AI? Let’s get started — click here to contact us.</p>
+      <a href="mailto:info@intangiblepartners.com"
+         class="inline-block rounded-xl px-8 py-4 bg-white text-black font-semibold border border-white/20 hover:bg-white/90">
+        info@intangiblepartners.com
+      </a>
+    </div>
+  </section>
 
-  </div>
-</section>
+  <footer class="border-t border-white/10 text-center py-8 text-white/70">
+    © <span id="year"></span> Intangible Partners — an Ateklo Company
+  </footer>
 
-<!-- FOOTER -->
-<footer class="py-10 border-t border-white/10 text-center text-sm opacity-60">
-  © Intangible Partners — an Ateklo Company
-</footer>
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
 
+    // Mobile tap flip
+    document.querySelectorAll('.flip').forEach(el=>{
+      el.addEventListener('click',()=> el.classList.toggle('flipped'));
+    });
+
+    // Slow global video
+    const v = document.querySelector('.site-video');
+    function setRate(){ try{ v.playbackRate = 0.5; }catch(e){} }
+    v?.addEventListener('loadedmetadata', setRate);
+    v?.addEventListener('play', setRate);
+    setRate();
+  </script>
 </body>
 </html>
