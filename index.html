@@ -1,361 +1,259 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Intangible Partners</title>
-<meta name="description" content="Intangible Partners — AI workforce, automation, and orchestration.">
-
-<style>
-/* ------------------ THEME ------------------ */
-:root{
-  --bg:#0E1117;
-  --panel:#0F1218;
-  --card:#111319;
-  --ink:#FFFFFF;
-  --muted:rgba(255,255,255,.74);
-  --muted2:rgba(255,255,255,.58);
-  --line:rgba(255,255,255,.12);
-  --accent:#00E4FF;           /* neon cyan accent for numbers */
-  --accent-soft:rgba(0,228,255,.35);
-  --glow1:rgba(38,99,248,0.28);
-  --glow2:rgba(111,61,244,0.28);
-}
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0;background:var(--bg);color:var(--ink);
-  font-family:ui-sans-serif, system-ui, -apple-system, Segoe UI, Inter, Roboto, Helvetica, Arial;
-  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
-}
-img{max-width:100%;display:block}
-
-/* ------------------ LAYOUT ------------------ */
-.container{max-width:1120px;margin-inline:auto;padding-inline:20px}
-.section{padding:68px 0}
-.section h3{font-size:24px;font-weight:800;text-align:center;margin:0 0 14px}
-.section .lead{max-width:840px;margin:0 auto;text-align:center;color:var(--muted);line-height:1.6}
-
-/* Header */
-header{
-  position:sticky;top:0;z-index:50;background:rgba(15,18,24,.92);
-  backdrop-filter:saturate(140%) blur(10px);
-  border-bottom:1px solid var(--line);
-}
-.navbar{height:86px;display:flex;align-items:center;justify-content:space-between}
-.brand{display:flex;align-items:center;gap:14px}
-.brand img.wordmark{
-  height:90px; /* bigger, clear company name */
-}
-.brand small{color:var(--muted2);font-size:10px;letter-spacing:.08em}
-
-/* Buttons */
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:8px;
-  height:42px;padding:0 16px;border-radius:12px;border:0;
-  background:#fff;color:#0E1117;font-weight:700;cursor:pointer;
-  box-shadow:0 2px 0 rgba(255,255,255,.35), 0 0 18px rgba(255,255,255,.22);
-}
-
-/* ------------------ HERO ------------------ */
-.hero{position:relative;overflow:hidden}
-.hero video{
-  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;
-}
-.hero:after{content:'';position:absolute;inset:0;background:rgba(0,0,0,.45);z-index:-1}
-.hero .glow{position:absolute;border-radius:9999px;filter:blur(120px);opacity:.6;pointer-events:none}
-.hero .g1{width:36rem;height:36rem;left:40%;top:-18%;background:var(--glow1)}
-.hero .g2{width:32rem;height:32rem;right:28%;bottom:-22%;background:var(--glow2)}
-
-.hero-inner{position:relative;z-index:2;text-align:center;padding:120px 0 90px}
-.hero-logo{
-  display:inline-flex;background:#fff;border-radius:14px;padding:12px 16px;margin:0 auto 14px;
-}
-.hero-logo img{height:64px}
-.hero h1{
-  margin:14px auto 8px;max-width:900px;
-  font-size:32px;line-height:1.28;font-weight:800;
-  text-shadow:0 0 6px rgba(102,51,255,.45);
-}
-.hero .cta{margin-top:16px}
-
-/* ------------------ GRIDS ------------------ */
-.grid{display:grid;gap:16px}
-@media(min-width:768px){
-  .grid.cols-3{grid-template-columns:repeat(3,1fr)}
-  .grid.cols-4{grid-template-columns:repeat(4,1fr)}
-}
-
-/* ------------------ FLIP CARDS (stable, small, consistent) ------------------ */
-.flip-wrap{perspective:1200px}
-.flip{
-  position:relative;width:100%;height:160px; /* small & consistent */
-  transform-style:preserve-3d; transition:transform .6s cubic-bezier(.42,0,.19,1.32);
-}
-.flip:hover{transform:rotateY(180deg)}
-.flip.flipped{transform:rotateY(180deg)} /* mobile tap */
-.face{
-  position:absolute;inset:0;border-radius:14px;backface-visibility:hidden;overflow:hidden;
-  background:var(--card);border:1px solid var(--line);
-  box-shadow:0 0 16px rgba(102,51,255,.22);
-  display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;padding:16px;
-}
-.face.front{gap:10px;font-weight:700}
-.face.back{transform:rotateY(180deg);font-size:14px;line-height:1.5;color:var(--muted)}
-
-/* small icon badge for fronts */
-.icon-badge{
-  background:#fff;border-radius:10px;width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center;flex:0 0 44px;
-}
-.icon-badge img{max-width:32px;max-height:32px}
-
-/* Outcomes — neon metric look (clean + readable) */
-.face.front.metric{
-  background:linear-gradient(135deg, rgba(0,228,255,.06), rgba(0,228,255,.02));
-  border:1px solid rgba(0,228,255,.25); box-shadow:0 0 20px var(--accent-soft);
-  font-weight:900; letter-spacing:.3px;
-}
-.metric .num{
-  font-size:40px;line-height:1;color:var(--accent);
-  text-shadow:0 0 12px rgba(0,228,255,.5), 0 0 24px rgba(0,228,255,.32);
-}
-
-/* ------------------ TIMELINE (clean, iconified) ------------------ */
-.timeline{position:relative;margin:34px auto 0;max-width:880px}
-.timeline::before{
-  content:'';position:absolute;left:42px;top:0;bottom:0;width:2px;background:var(--line);
-}
-.ti{
-  position:relative;display:grid;grid-template-columns:84px 1fr;gap:16px;margin-bottom:18px;
-}
-.ti:last-child{margin-bottom:0}
-.ti .dot{
-  position:relative; z-index:1; width:28px;height:28px;border-radius:9999px;background:#fff;
-  box-shadow:0 0 12px rgba(255,255,255,.4); display:flex;align-items:center;justify-content:center;margin-top:2px;margin-left:28px;
-}
-.ti .dot img{width:18px;height:18px;object-fit:contain}
-.ti .card{
-  background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 18px;
-  box-shadow:0 0 16px rgba(102,51,255,.2);
-}
-.ti .step{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted2);margin-bottom:6px}
-.ti .title{font-weight:800;margin-bottom:6px}
-.ti .body{color:var(--muted);line-height:1.55}
-
-/* ------------------ MISC ------------------ */
-hr.sep{border:0;border-top:1px solid var(--line);margin:0}
-footer{color:rgba(255,255,255,.7)}
-
-/* Respect user reduced motion */
-@media (prefers-reduced-motion: reduce){
-  .flip, .hero *, .sr{transition:none !important}
-}
-</style>
+<script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="bg-black text-white antialiased">
 
-<!-- ------------------ HEADER ------------------ -->
-<header>
-  <div class="container navbar">
-    <div class="brand">
-      <!-- BIG wordmark image (white background is baked into the PNG you uploaded) -->
-      <img class="wordmark" src="./assets/ip-wordmark_big_white.png" alt="Intangible Partners">
-      <small>an Ateklo Company</small>
-    </div>
+<!-- HERO -->
+<section class="relative h-screen w-full overflow-hidden flex items-center justify-center">
+
+  <!-- BG VIDEO -->
+  <video class="absolute inset-0 w-full h-full object-cover opacity-30" autoplay muted loop playsinline>
+    <source src="assets/Hero%20Video.mp4" type="video/mp4">
+  </video>
+
+  <!-- gradient overlay (optional subtle darken) -->
+  <div class="absolute inset-0 bg-black/40"></div>
+
+  <!-- HEADER BRAND -->
+  <div class="absolute top-0 left-0 p-6 z-20 flex items-center">
+     <img src="assets/ip-wordmark_big_white.png" class="h-[160px] w-auto" />
   </div>
-</header>
 
-<!-- ------------------ HERO ------------------ -->
-<section class="hero">
-  <video id="heroVideo" src="./assets/Hero Video.mp4" autoplay muted loop playsinline></video>
-  <div class="glow g1"></div>
-  <div class="glow g2"></div>
+  <!-- HERO CONTENT CENTER -->
+  <div class="relative z-20 flex flex-col items-center text-center px-4 max-w-4xl space-y-6">
 
-  <div class="container hero-inner">
-    <span class="hero-logo"><img src="./assets/ip-mark.png" alt="IP logo"></span>
-    <h1>We are building an <span class="underline">Intangible</span> workforce that <span class="underline">Partners</span> with companies to improve operational efficiency, productivity, and value creation.</h1>
-    <div class="cta"><a class="btn" href="#contact">Work With Us</a></div>
+      <!-- IP MARK CENTER -->
+      <img src="assets/ip-mark.png" class="h-36 w-auto mb-4" />
+
+      <h1 class="text-4xl md:text-5xl font-semibold leading-tight">
+        We aim to build the world’s most powerful AI infrastructure layer
+      </h1>
+
+      <p class="text-xl opacity-90">
+        shaping the future where intelligent systems execute at enterprise scale
+      </p>
+
   </div>
+
 </section>
+<!-- 3 CORE CAPABILITIES (FLIP TILES) -->
+<section class="py-28 bg-black relative z-20">
+  <div class="max-w-6xl mx-auto px-6">
+    
+    <h2 class="text-3xl font-semibold text-center mb-14">
+      Our Core AI Infrastructure Pillars
+    </h2>
 
-<!-- ------------------ WE AIM TO BUILD (3 small flips) ------------------ -->
-<section class="section" id="aim">
-  <div class="container">
-    <h3>We aim to build</h3>
-    <p class="lead">We aim to deploy a reliable AI workforce, with human-level performance, and super-human intelligence.</p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
 
-    <div class="grid cols-3" style="margin-top:24px;">
-      <!-- AI Agent -->
-      <div class="flip-wrap"><div class="flip">
-        <div class="face front">
-          <span class="icon-badge"><img src="./assets/AI Agent Graphic.png" alt=""></span>
-          <span>AI Agent</span>
+      <!-- AI Agents -->
+      <div class="group relative [perspective:1000px]">
+        <div class="relative h-64 w-full rounded-xl bg-neutral-900 border border-white/10 shadow-xl transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+          
+          <!-- FRONT -->
+          <div class="absolute inset-0 flex flex-col items-center justify-center p-6 space-y-4 [backface-visibility:hidden]">
+            <img src="assets/ai_icon_new.png" class="h-16 w-16 opacity-95">
+            <h3 class="text-xl font-medium">Custom AI Agents</h3>
+          </div>
+
+          <!-- BACK -->
+          <div class="absolute inset-0 p-6 text-sm leading-relaxed text-center flex items-center justify-center [transform:rotateY(180deg)] [backface-visibility:hidden]">
+            Intelligent entities designed from the ground up to handle complex, domain-specific workflows & decisions.
+          </div>
+
         </div>
-        <div class="face back">
-          <strong>Custom AI Agents</strong><br>
-          Intelligent entities designed from the ground up to handle complex, domain-specific tasks and decision-making.
-        </div>
-      </div></div>
+      </div>
 
       <!-- Automation -->
-      <div class="flip-wrap"><div class="flip">
-        <div class="face front">
-          <span class="icon-badge"><img src="./assets/Automation Graphic.png" alt=""></span>
-          <span>Automation</span>
+      <div class="group relative [perspective:1000px]">
+        <div class="relative h-64 w-full rounded-xl bg-neutral-900 border border-white/10 shadow-xl transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+
+          <!-- FRONT -->
+          <div class="absolute inset-0 flex flex-col items-center justify-center p-6 space-y-4 [backface-visibility:hidden]">
+            <img src="assets/automation_icon_new.png" class="h-16 w-16 opacity-95">
+            <h3 class="text-xl font-medium">Hyper Automation</h3>
+          </div>
+
+          <!-- BACK -->
+          <div class="absolute inset-0 p-6 text-sm leading-relaxed text-center flex items-center justify-center [transform:rotateY(180deg)] [backface-visibility:hidden]">
+            A reliable digital workforce operating 24/7 — automating entire processes & removing administrative burden.
+          </div>
+
         </div>
-        <div class="face back">
-          <strong>Hyper Automation</strong><br>
-          Deploy a reliable digital workforce that operates 24/7, automating entire workflows and eliminating manual administrative burden.
-        </div>
-      </div></div>
+      </div>
 
       <!-- Orchestration -->
-      <div class="flip-wrap"><div class="flip">
-        <div class="face front">
-          <span class="icon-badge"><img src="./assets/Orchestration Graphic.png" alt=""></span>
-          <span>Orchestration Infrastructure</span>
-        </div>
-        <div class="face back">
-          <strong>Orchestration Infrastructure</strong><br>
-          A robust, scalable platform to monitor, manage, and coordinate thousands of concurrent, autonomous agents.
-        </div>
-      </div></div>
-    </div>
-  </div>
-</section>
+      <div class="group relative [perspective:1000px]">
+        <div class="relative h-64 w-full rounded-xl bg-neutral-900 border border-white/10 shadow-xl transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
 
-<!-- ------------------ 3 STEPS (vertical timeline w/ icons) ------------------ -->
-<section class="section" id="steps">
-  <div class="container">
-    <h3>3 Steps to Build</h3>
+          <!-- FRONT -->
+          <div class="absolute inset-0 flex flex-col items-center justify-center p-6 space-y-4 [backface-visibility:hidden]">
+            <img src="assets/orchestration_icon_new.png" class="h-16 w-16 opacity-95">
+            <h3 class="text-xl font-medium">Orchestration Infrastructure</h3>
+          </div>
 
-    <div class="timeline" style="margin-top:22px">
-      <!-- Step 1 -->
-      <div class="ti">
-        <span class="dot"><img src="./assets/step_icon_1.png" alt=""></span>
-        <div class="card">
-          <div class="step">Step 1</div>
-          <div class="title">Human Mapping &amp; Discovery</div>
-          <div class="body">Deploy a human to map out operations and identify opportunity areas.</div>
+          <!-- BACK -->
+          <div class="absolute inset-0 p-6 text-sm leading-relaxed text-center flex items-center justify-center [transform:rotateY(180deg)] [backface-visibility:hidden]">
+            A high-reliability platform to monitor, manage & coordinate thousands of independent autonomous agents.
+          </div>
+
         </div>
       </div>
 
-      <!-- Step 2 -->
-      <div class="ti">
-        <span class="dot"><img src="./assets/step_icon_2.png" alt=""></span>
-        <div class="card">
-          <div class="step">Step 2</div>
-          <div class="title">Value Potential Targeting</div>
-          <div class="body">Find the area of most value potential.</div>
+    </div>
+
+  </div>
+</section>
+<!-- VERTICAL TIMELINE (3 STEP) -->
+<section class="py-28 bg-black relative z-20">
+  <div class="max-w-4xl mx-auto px-6">
+
+    <h2 class="text-3xl font-semibold text-center mb-20">
+      How We Build Intelligence At Enterprise Scale
+    </h2>
+
+    <div class="relative border-l-2 border-white/10 ml-6 space-y-20">
+
+      <!-- STEP 1 -->
+      <div class="relative pl-12">
+        <div class="absolute -left-[14px] top-1 h-6 w-6 rounded-full bg-teal-400 shadow-[0_0_12px_rgba(45,255,227,0.6)]"></div>
+        <h3 class="text-xl font-medium mb-2">Step 1 — Foundational AI Capability Extraction</h3>
+        <p class="text-sm opacity-80 leading-relaxed">
+          We identify the operational reality and isolate core value loops — translating your domain knowledge into structured competency maps.
+        </p>
+      </div>
+
+      <!-- STEP 2 -->
+      <div class="relative pl-12">
+        <div class="absolute -left-[14px] top-1 h-6 w-6 rounded-full bg-purple-400 shadow-[0_0_12px_rgba(168,128,255,0.6)]"></div>
+        <h3 class="text-xl font-medium mb-2">Step 2 — Autonomous Automation Layer</h3>
+        <p class="text-sm opacity-80 leading-relaxed">
+          We activate autonomous workflow execution — so tasks become self-managing, self-routing & self-correcting without human micro-inputs.
+        </p>
+      </div>
+
+      <!-- STEP 3 -->
+      <div class="relative pl-12">
+        <div class="absolute -left-[14px] top-1 h-6 w-6 rounded-full bg-sky-400 shadow-[0_0_12px_rgba(120,188,255,0.6)]"></div>
+        <h3 class="text-xl font-medium mb-2">Step 3 — Orchestrated Intelligence Network</h3>
+        <p class="text-sm opacity-80 leading-relaxed">
+          We scale from isolated agents → into a synchronized, resilient intelligence fabric coordinating across thousands of actors in real-time.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+<!-- OUTCOMES METRICS -->
+<section class="py-28 bg-black relative z-20">
+  <div class="max-w-6xl mx-auto px-6">
+    
+    <h2 class="text-3xl font-semibold text-center mb-16">
+      Proven Outcomes We Deliver
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+
+      <!-- tile -->
+      <div class="flex flex-col items-center text-center bg-neutral-900 border border-white/10 rounded-xl p-8 hover:bg-neutral-800 transition">
+        <div class="text-5xl font-bold text-sky-400 mb-3 drop-shadow-[0_0_10px_rgba(120,188,255,0.3)]">40%+</div>
+        <div class="text-sm opacity-80">
+          Operating Efficiency Lift
         </div>
       </div>
 
-      <!-- Step 3 -->
-      <div class="ti">
-        <span class="dot"><img src="./assets/step_icon_3.png" alt=""></span>
-        <div class="card">
-          <div class="step">Step 3</div>
-          <div class="title">Deployment &amp; Scaling</div>
-          <div class="body">Begin building and implementing your digital workforce.</div>
+      <!-- tile -->
+      <div class="flex flex-col items-center text-center bg-neutral-900 border border-white/10 rounded-xl p-8 hover:bg-neutral-800 transition">
+        <div class="text-5xl font-bold text-sky-400 mb-3 drop-shadow-[0_0_10px_rgba(120,188,255,0.3)]">70%+</div>
+        <div class="text-sm opacity-80">
+          Admin Workload Reduction
         </div>
       </div>
+
+      <!-- tile -->
+      <div class="flex flex-col items-center text-center bg-neutral-900 border border-white/10 rounded-xl p-8 hover:bg-neutral-800 transition">
+        <div class="text-5xl font-bold text-sky-400 mb-3 drop-shadow-[0_0_10px_rgba(120,188,255,0.3)]">5x</div>
+        <div class="text-sm opacity-80">
+          Execution Throughput Expansion
+        </div>
+      </div>
+
+      <!-- tile -->
+      <div class="flex flex-col items-center text-center bg-neutral-900 border border-white/10 rounded-xl p-8 hover:bg-neutral-800 transition">
+        <div class="text-5xl font-bold text-sky-400 mb-3 drop-shadow-[0_0_10px_rgba(120,188,255,0.3)]">95%+</div>
+        <div class="text-sm opacity-80">
+          Execution Consistency Accuracy
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+<!-- WHO WE SERVE -->
+<section class="py-28 bg-black relative z-20">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <h2 class="text-3xl font-semibold text-center mb-16">
+      Who We Serve
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+
+      <div class="bg-neutral-900 border border-white/10 rounded-xl p-10 text-center hover:bg-neutral-800 transition">
+        <h3 class="text-xl font-medium mb-3">Enterprise AI Leaders</h3>
+        <p class="text-sm opacity-80 leading-relaxed">
+          Building next-gen intelligence fabrics inside complex organizations.
+        </p>
+      </div>
+
+      <div class="bg-neutral-900 border border-white/10 rounded-xl p-10 text-center hover:bg-neutral-800 transition">
+        <h3 class="text-xl font-medium mb-3">Automation Architects</h3>
+        <p class="text-sm opacity-80 leading-relaxed">
+          Replatforming operations from manual workflows into autonomous execution networks.
+        </p>
+      </div>
+
+      <div class="bg-neutral-900 border border-white/10 rounded-xl p-10 text-center hover:bg-neutral-800 transition">
+        <h3 class="text-xl font-medium mb-3">Deep Tech Accelerators</h3>
+        <p class="text-sm opacity-80 leading-relaxed">
+          Scaling applied AI into production-grade, revenue-driving systems.
+        </p>
+      </div>
+
     </div>
   </div>
 </section>
+<!-- CONTACT -->
+<section class="py-28 bg-black relative z-20">
+  <div class="max-w-4xl mx-auto px-6 text-center">
 
-<!-- ------------------ OUTCOMES (neon cyan small flips) ------------------ -->
-<section class="section" id="outcomes">
-  <div class="container">
-    <h3>Outcomes</h3>
+    <h2 class="text-3xl font-semibold mb-8">
+      Let's Build The Future Together
+    </h2>
 
-    <div class="grid cols-4" style="margin-top:24px">
-      <div class="flip-wrap"><div class="flip">
-        <div class="face front metric"><span class="num">60%</span></div>
-        <div class="face back metric">We removed repetitive manual work by automating routine administrative workflows.</div>
-      </div></div>
+    <p class="opacity-80 mb-10">
+      Interested in partnering, deploying enterprise-scale autonomy, or exploring our infrastructure layer?
+    </p>
 
-      <div class="flip-wrap"><div class="flip">
-        <div class="face front metric"><span class="num">4X</span></div>
-        <div class="face back metric">Clients generate more value than they spend because automation compounds efficiency faster.</div>
-      </div></div>
+    <a href="mailto:info@intangiblepartners.com" 
+       class="inline-block px-10 py-4 border border-white/20 rounded-full hover:bg-white hover:text-black transition font-medium text-lg">
+      info@intangiblepartners.com
+    </a>
 
-      <div class="flip-wrap"><div class="flip">
-        <div class="face front metric"><span class="num">6X</span></div>
-        <div class="face back metric">AI agents rapidly qualify, prioritize, and route leads so teams close deals quicker.</div>
-      </div></div>
-
-      <div class="flip-wrap"><div class="flip">
-        <div class="face front metric"><span class="num">40%+</span></div>
-        <div class="face back metric">Each deployment produces measurable improvements, validated by actual customer results.</div>
-      </div></div>
-    </div>
   </div>
 </section>
 
-<!-- ------------------ WHO WE SERVE (small flips) ------------------ -->
-<section class="section" id="serve">
-  <div class="container">
-    <h3>Who We Serve</h3>
-    <div class="grid cols-3" style="margin-top:24px">
-      <div class="flip-wrap"><div class="flip">
-        <div class="face front" style="font-weight:800">Startups</div>
-        <div class="face back">Give small teams leverage to operate like larger organizations without increasing headcount.</div>
-      </div></div>
-      <div class="flip-wrap"><div class="flip">
-        <div class="face front" style="font-weight:800">SMBs</div>
-        <div class="face back">Drive operational efficiency where resources are limited and value creation matters most.</div>
-      </div></div>
-      <div class="flip-wrap"><div class="flip">
-        <div class="face front" style="font-weight:800">VC &amp; PE</div>
-        <div class="face back">Unlock hidden value inside portfolios by accelerating operational improvement across companies.</div>
-      </div></div>
-    </div>
-  </div>
-</section>
-
-<hr class="sep" />
-
-<!-- ------------------ CONTACT ------------------ -->
-<section class="section" id="contact">
-  <div class="container" style="text-align:center">
-    <h3>Contact</h3>
-    <p class="lead" style="color:#fff">Are you ready to start actually realizing the value of AI?<br>Let’s get started — click to contact us.</p>
-    <a class="btn" href="mailto:info@intangiblepartners.com">info@intangiblepartners.com</a>
-  </div>
-</section>
-
-<footer>
-  <div class="container" style="padding:36px 0">© <span id="year"></span> Intangible Partners</div>
+<!-- FOOTER -->
+<footer class="py-10 border-t border-white/10 text-center text-sm opacity-60">
+  © Intangible Partners — an Ateklo Company
 </footer>
-
-<!-- (Optional) ScrollReveal CDN for subtle reveals -->
-<script src="https://unpkg.com/scrollreveal"></script>
-<script>
-/* Year */
-document.getElementById('year').textContent = new Date().getFullYear();
-
-/* Mobile tap flip (desktop hover already works) */
-document.querySelectorAll('.flip').forEach(card=>{
-  card.addEventListener('click',()=> card.classList.toggle('flipped'));
-});
-
-/* Slow hero video to 0.5x and keep it so */
-const v = document.getElementById('heroVideo');
-function setRate(){ try{ v.playbackRate = 0.5; }catch(e){} }
-v.addEventListener('loadedmetadata', setRate);
-v.addEventListener('play', setRate);
-setRate();
-
-/* Subtle reveals (fade + slight slide up), once */
-if (window.ScrollReveal){
-  const cfg = {distance:'16px', origin:'bottom', opacity:0, duration:600, easing:'cubic-bezier(0.22,1,0.36,1)', reset:false};
-  ScrollReveal().reveal('#aim .grid > *', {...cfg, interval:80, delay:60});
-  ScrollReveal().reveal('#steps .ti', {...cfg, interval:90, delay:80});
-  ScrollReveal().reveal('#outcomes .flip-wrap', {...cfg, interval:80, delay:60});
-  ScrollReveal().reveal('#serve .flip-wrap', {...cfg, interval:80, delay:60});
-  ScrollReveal().reveal('#contact .btn', {...cfg, delay:120});
-}
-</script>
 
 </body>
 </html>
