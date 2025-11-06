@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Intangible Partners</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="glow one"></div>
+  <div class="glow two"></div>
+  <div class="particles" aria-hidden="true"></div>
+  <div class="container hero-inner">
+    <!-- Logo -->
+    <img class="logo reveal" src="ip-smile.png" alt="IP Smile Logo" style="max-width: 140px; margin-bottom: 10px;"/>
+
+    <!-- Hero Headings -->
+    <h1 class="reveal delay-1">
+      We aim to deploy a reliable AI workforce, with human-level performance, and super-human intelligence.
+    </h1>
+    <img src="ip-name.png" alt="Intangible Partners" style="max-width: 320px;" class="reveal delay-2"/>
+    <p class="reveal delay-3" style="font-size: 14px; margin-top: 4px; color: #999;">An Ateklo Company</p>
+    
+    <div class="cta reveal delay-4">
+      <a href="#contact" class="btn">Work With Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- Video Section -->
+<section class="section">
+  <div class="container">
+    <div class="reveal delay-1" style="margin-top:20px; text-align:center">
+      <video controls style="max-width:100%; border-radius:12px">
+        <source src="video.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+</section>
+
+<!-- 3 Graphics Below Video -->
+<section class="section">
+  <div class="container">
+    <div class="grid cols-3" style="margin-top: 32px;">
+      <div class="card reveal"><img src="graphic1.png" alt="Graphic 1" style="width:100%; border-radius:12px"/></div>
+      <div class="card reveal delay-1"><img src="graphic2.png" alt="Graphic 2" style="width:100%; border-radius:12px"/></div>
+      <div class="card reveal delay-2"><img src="graphic3.png" alt="Graphic 3" style="width:100%; border-radius:12px"/></div>
+    </div>
+  </div>
+</section>
+
+<!-- How It Works (Steps) -->
+<section class="section">
+  <div class="container">
+    <h3 class="reveal">How It Works</h3>
+    <div class="grid cols-3" style="margin-top:24px">
+      <div class="card reveal"><img src="step1.png" alt="Step 1"/></div>
+      <div class="card reveal delay-1"><img src="step2.png" alt="Step 2"/></div>
+      <div class="card reveal delay-2"><img src="step3.png" alt="Step 3"/></div>
+    </div>
+  </div>
+</section>
+
+<!-- Proven Results -->
+<section class="section">
+  <div class="container">
+    <h3 class="reveal">Proven Results</h3>
+    <div class="grid cols-2" style="margin-top:24px">
+      <div class="card reveal"><div class="ch"><h4>60% Reduction in Admin Tasks</h4></div></div>
+      <div class="card reveal delay-1"><div class="ch"><h4>4X Return on Investment</h4></div></div>
+      <div class="card reveal delay-2"><div class="ch"><h4>6X Faster Lead Generation</h4></div></div>
+      <div class="card reveal delay-3"><div class="ch"><h4>Customer Outcomes</h4></div>
+        <div class="ct"><p>Insert outcome statistics from customer case studies and metrics</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Who We Serve -->
+<section class="section">
+  <div class="container">
+    <h3 class="reveal">Who We Serve</h3>
+    <p class="lead reveal delay-1">
+      We work with growing companies that want to intentionally implement AI that can lower cost, optimize back office operations, and create real value.
+    </p>
+    <div class="grid cols-3" style="margin-top:24px">
+      <div class="card reveal"><div class="ch"><h4>Growing Startups</h4></div></div>
+      <div class="card reveal delay-1"><div class="ch"><h4>Small & Medium Businesses</h4></div></div>
+      <div class="card reveal delay-2"><div class="ch"><h4>VC & PE Funds</h4></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="section">
+  <div class="container">
+    <h3 class="reveal">Are you ready to start actually realizing the value of AI?</h3>
+    <p class="lead reveal delay-1">Let’s get started, click here to contact us.</p>
+    <div style="margin-top:20px">
+      <a href="mailto:info@intangiblepartners.com" class="btn reveal delay-2">Contact Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="section">
+  <div class="container">
+    <p class="small">&copy; 2025 Intangible Partners. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
