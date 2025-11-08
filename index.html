@@ -49,9 +49,9 @@
       width:100vw; height:100vh;
       object-fit:cover;
       z-index:-1;
-      opacity:.20;             /* ~0.20 as requested */
+      opacity:.20;
       pointer-events:none;
-      transform:translateY(0); /* parallax shift on scroll */
+      transform:translateY(0);
       transition:opacity .3s ease;
     }
 
@@ -61,11 +61,12 @@
       padding:.4rem .55rem;
       background: rgba(255,255,255,0.02);
       box-shadow: 0 0 0 1px rgba(255,255,255,.12) inset, 0 8px 24px rgba(0,0,0,.25);
+      width:240px;  /* <--- EDIT APPLIED */
     }
     .brand-img{
-      width: 240px;            /* changed from 210px to 240px */
-      height: 36px;
-      object-fit: contain;
+      width:240px;   /* <--- EDIT APPLIED */
+      height:36px;
+      object-fit:contain;
       display:block;
     }
 
@@ -80,7 +81,7 @@
       display:block;
       height:64px;
       margin:0 auto 1rem auto;
-      mix-blend-mode: screen; /* black pixels “disappear” over dark card */
+      mix-blend-mode: screen;
       opacity:.95;
     }
   </style>
@@ -118,15 +119,11 @@
     <!-- HERO (no section border so no horizontal line) -->
     <section id="hero" class="pt-24 sm:pt-28 pb-32 sm:pb-40 px-4 sm:px-6 lg:px-8 text-center relative rounded-b-lg">
       <div class="relative z-10 max-w-4xl mx-auto">
-        <!-- IP smile smaller with soft 3D shadow -->
         <img src="assets/ip-mark-truecolors-white.png" alt="IP Smile" class="mx-auto h-14 sm:h-16 mb-6 opacity-95 ip-3d"/>
-
-        <!-- concise 2-line sentence -->
         <p class="text-2xl sm:text-3xl text-gray-200 max-w-3xl mx-auto mb-10 leading-relaxed font-semibold">
           We build an Intangible workforce that partners with you
           to lift efficiency, productivity, and value.
         </p>
-
         <a href="#contact" class="inline-flex items-center justify-center px-8 py-3 text-lg font-bold rounded-full bg-cyan-500 text-gray-950 hover:bg-cyan-400 transition-all duration-300 shadow-xl shadow-cyan-500/50 transform hover:scale-[1.03]">
           Deploy Your AI Agent
         </a>
@@ -134,14 +131,6 @@
     </section>
 
     <!-- VISION (no border lines) -->
-    <section id="vision" class="py-20 sm:py-24 px-4 sm:px-6 lg:px-8">
-      <div class="max-w-7xl mx-auto">
-        <div class="text-center mb-12">
-          <p class="text-2xl sm:text-3xl text-gray-200 max-w-3xl mx-auto font-semibold">
-            Reliable AI workforce — human-level performance, super-human intelligence — tailored to your domain.
-          </p>
-        </div>
-
         <div class="grid md:grid-cols-3 gap-8">
           <!-- Tile 1 (lucide) -->
           <div class="neon-border-card p-8 rounded-xl text-center">
@@ -188,7 +177,6 @@
               <h3 class="text-3xl font-bold text-white mb-3">Human Mapping & Discovery</h3>
               <p class="text-gray-400"><strong>Step One:</strong> Deploy a human to map out operations and identify opportunity areas. Our experts embed themselves to fully understand your processes, identifying friction and high-leverage points.</p>
             </div>
-            <div class="md:w-1/2');?>
             <div class="md:w-1/2 flex justify-center md:even:justify-end">
               <div class="p-4 rounded-full bg-cyan-600/20 ring-4 ring-cyan-500/50">
                 <i data-lucide="users" class="w-12 h-12 text-cyan-400"></i>
@@ -225,8 +213,7 @@
         </div>
       </div>
     </section>
-
-    <!-- METRICS -->
+    <!-- METRICS (solid cards; darker support lines) -->
     <section id="outcomes" class="py-20 sm:py-24 px-4 sm:px-6 lg:px-8">
       <div class="max-w-7xl mx-auto">
         <div class="text-center mb-12">
@@ -239,18 +226,21 @@
           <div class="bg-gray-800 p-8 rounded-2xl text-center border border-fuchsia-500/30 hover:shadow-2xl hover:shadow-fuchsia-500/20 transition-all">
             <div class="text-7xl font-extrabold neon-text-gradient mb-2">60%</div>
             <p class="text-lg font-medium text-gray-300">Reduction in Admin tasks</p>
+            <!-- changed to text-base -->
             <p class="text-base text-gray-400 mt-2">Freeing up human talent for high-level strategy.</p>
           </div>
 
           <div class="bg-gray-800 p-8 rounded-2xl text-center border border-cyan-500/30 hover:shadow-2xl hover:shadow-cyan-500/20 transition-all">
             <div class="text-7xl font-extrabold neon-text-gradient mb-2">4X</div>
             <p class="text-lg font-medium text-gray-300">Return on Investment (ROI)</p>
+            <!-- changed to text-base -->
             <p class="text-base text-gray-400 mt-2">Achieved within the first 12 months of deployment.</p>
           </div>
 
           <div class="bg-gray-800 p-8 rounded-2xl text-center border border-green-500/30 hover:shadow-2xl hover:shadow-green-500/20 transition-all">
             <div class="text-7xl font-extrabold neon-text-gradient mb-2">6X</div>
             <p class="text-lg font-medium text-gray-300">Faster Lead Generation</p>
+            <!-- changed to text-base -->
             <p class="text-base text-gray-400 mt-2">Accelerating sales cycles with autonomous qualification.</p>
           </div>
         </div>
@@ -289,11 +279,15 @@
       let scrollTimeout = null;
       let hasInteracted = false;
 
+      // slow playback
       vid.playbackRate = 0.75;
 
+      // always start paused
       try { vid.pause(); } catch(e){}
 
+      // play while scrolling; pause 500ms after scroll stops
       function onScrollActivity(){
+        // first interaction: allow play
         if(!hasInteracted){
           hasInteracted = true;
         }
@@ -305,8 +299,11 @@
         } catch(e){}
 
         if(scrollTimeout) clearTimeout(scrollTimeout);
-        scrollTimeout = setTimeout(()=>{ try { vid.pause(); } catch(e){} }, 500);
+        scrollTimeout = setTimeout(()=>{
+          try { vid.pause(); } catch(e){}
+        }, 500); // pause shortly after scrolling stops
 
+        // subtle parallax
         const y = window.scrollY || 0;
         vid.style.transform = 'translateY(' + (y * 0.18) + 'px)';
       }
@@ -317,3 +314,4 @@
   </script>
 </body>
 </html>
+
