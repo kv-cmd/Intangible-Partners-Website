@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Intangible Partners | Autonomous Workforce Solutions</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Lucide Icons CDN -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 
@@ -25,37 +23,26 @@
         .neon-border-card {
             background: #111827;
             border: 1px solid #1f2937;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
+            transition: all .3s ease;
         }
         .neon-border-card:hover {
             border-color: var(--primary-neon);
-            box-shadow: 0 0 15px rgba(0, 228, 255, 0.4);
+            box-shadow: 0 0 15px rgba(0, 228, 255, .4);
             transform: translateY(-4px);
         }
 
-        /* background video */
-        #bg-video {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100vw;
-            height: 100vh;
-            object-fit: cover;
-            z-index: -1;
-            opacity: .35;
-            pointer-events: none;
+        #bg-video{
+            position:fixed;top:0;left:0;width:100vw;height:100vh;
+            object-fit:cover;z-index:-1;opacity:.35;pointer-events:none;
         }
     </style>
 </head>
 <body>
 
-<!-- background video -->
 <video id="bg-video" autoplay muted loop playsinline>
     <source src="/assets/bg-video.mp4" type="video/mp4">
 </video>
 
-<!-- NAV -->
 <nav class="sticky top-0 z-50 bg-gray-950/80 backdrop-blur-sm border-b border-gray-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col items-start">
         <img src="/assets/ip-wordmark_big_white_cropped.png" class="h-12 rounded-md mb-1">
@@ -65,39 +52,29 @@
 
 <main>
 
-<!-- HERO -->
 <section id="hero" class="pt-32 pb-48 px-4 sm:px-6 lg:px-8 text-center border-b border-gray-900 rounded-b-lg relative">
-
     <img src="/assets/ip-mark-truecolors-white.png" class="mx-auto h-32 mb-12">
-
     <p class="text-3xl font-semibold text-gray-200 max-w-3xl mx-auto mb-12 leading-relaxed">
         We are building an Intangible workforce that Partners with companies to improve operational efficiency, productivity, and value creation.
     </p>
-
     <a href="#contact" class="inline-flex items-center justify-center px-8 py-3 text-lg font-bold rounded-full bg-cyan-500 text-gray-950 hover:bg-cyan-400 transition-all duration-300 shadow-xl shadow-cyan-500/50 transform hover:scale-[1.03]">
         Deploy Your AI Agent
     </a>
 </section>
 
-
-<!-- VISION -->
 <section id="vision" class="py-24 px-4 sm:px-6 lg:px-8">
     <div class="max-w-7xl mx-auto">
-
         <div class="text-center mb-16">
             <p class="text-3xl font-semibold text-gray-200 max-w-3xl mx-auto leading-relaxed">
                 We aim to deploy a reliable AI workforce, with human-level performance, and super-human intelligence tailored to your domain.
             </p>
         </div>
-
         <div class="grid md:grid-cols-3 gap-8">
-
             <div class="neon-border-card p-8 rounded-xl text-center">
-                <img src="/assets/brain-logo.png" class="mx-auto h-16 mb-4 opacity-90">
+                <img src="/assets/brain-logo.png" class="mx-auto h-16 mb-4">
                 <h3 class="text-2xl font-bold text-white mb-3">Custom AI Agents</h3>
                 <p class="text-gray-400">Intelligent entities designed from the ground up to handle complex, domain-specific tasks and decision-making.</p>
             </div>
-
             <div class="neon-border-card p-8 rounded-xl text-center">
                 <div class="text-fuchsia-400 mb-4 inline-block">
                     <i data-lucide="zap" class="w-16 h-16 mx-auto"></i>
@@ -105,7 +82,6 @@
                 <h3 class="text-2xl font-bold text-white mb-3">Hyper Automation</h3>
                 <p class="text-gray-400">Deploy a reliable digital workforce that operates 24/7, automating entire workflows and eliminating manual administrative burden.</p>
             </div>
-
             <div class="neon-border-card p-8 rounded-xl text-center">
                 <div class="text-green-400 mb-4 inline-block">
                     <i data-lucide="servers" class="w-16 h-16 mx-auto"></i>
@@ -113,13 +89,10 @@
                 <h3 class="text-2xl font-bold text-white mb-3">Orchestration Infrastructure</h3>
                 <p class="text-gray-400">A robust, scalable platform to monitor, manage, and coordinate thousands of concurrent, autonomous agents.</p>
             </div>
-
         </div>
     </div>
 </section>
 
-
-<!-- OUTCOMES -->
 <section id="outcomes" class="py-24 px-4 sm:px-6 lg:px-8">
     <div class="max-w-7xl mx-auto">
         <div class="text-center mb-16">
@@ -127,20 +100,17 @@
                 We have a proven approach that translates intangible intelligence into concrete business metrics.
             </p>
         </div>
-
         <div class="grid md:grid-cols-3 gap-8">
             <div class="bg-gray-800/50 p-8 rounded-2xl text-center border border-fuchsia-500/30">
                 <div class="text-7xl font-extrabold neon-text-gradient mb-2">60%</div>
                 <p class="text-lg font-medium text-gray-300">Reduction in Admin tasks</p>
                 <p class="text-sm text-gray-500 mt-2">Freeing up human talent for high-level strategy.</p>
             </div>
-
             <div class="bg-gray-800/50 p-8 rounded-2xl text-center border border-cyan-500/30">
                 <div class="text-7xl font-extrabold neon-text-gradient mb-2">4X</div>
                 <p class="text-lg font-medium text-gray-300">Return on Investment (ROI)</p>
                 <p class="text-sm text-gray-500 mt-2">Achieved within the first 12 months of deployment.</p>
             </div>
-
             <div class="bg-gray-800/50 p-8 rounded-2xl text-center border border-green-500/30">
                 <div class="text-7xl font-extrabold neon-text-gradient mb-2">6X</div>
                 <p class="text-lg font-medium text-gray-300">Faster Lead Generation</p>
@@ -150,8 +120,6 @@
     </div>
 </section>
 
-
-<!-- CONTACT -->
 <section id="contact" class="py-24 px-4 sm:px-6 lg:px-8 bg-gray-900 border-t border-gray-800 text-center">
     <h2 class="text-4xl font-extrabold text-white mb-4">Ready to Partner with the Future?</h2>
     <p class="text-xl text-gray-300 max-w-3xl mx-auto mb-10">
