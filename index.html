@@ -82,7 +82,7 @@
 <body>
 
   <!-- Background video: play while scrolling; pause shortly after -->
-  <video id="bg-video" muted loop playsinline preload="auto">
+  <video id="bg-video" muted loop playsinline preload="auto" poster="assets/bg-video-firstframe.png">
     <source src="assets/bg-video.mp4" type="video/mp4"/>
   </video>
 
@@ -160,7 +160,7 @@
 
           <!-- Tile 3 (your small logo, blended so no black box) -->
           <div class="neon-border-card p-8 rounded-xl text-center">
-            <img src="/assets/transparent_logo.png" class="mx-auto h-16 mb-4">
+            <img src="assets/transparent_logo.png" class="mx-auto h-16 mb-4">
             <h3 class="text-2xl font-bold text-white mb-3">Orchestration Infrastructure</h3>
             <p class="text-gray-400">A robust, scalable platform to monitor, manage, and coordinate thousands of concurrent, autonomous agents.</p>
           </div>
@@ -169,7 +169,7 @@
     </section>
 
     <!-- TIMELINE / BLUEPRINT -->
-    <section id="how-it-works" class="py-24 px-4 sm:px-6 lg:px-8 bg-gray-900/50">
+    <section id="how-it-works" class="py-24 px-4 sm:px-6 lg:px-8 bg-transparent">
       <div class="max-w-5xl mx-auto">
         <div class="text-center mb-16">
           <p class="text-lg text-fuchsia-400 font-semibold mb-2">Our Method</p>
@@ -310,7 +310,7 @@
 
         // subtle parallax
         const y = window.scrollY || 0;
-        vid.style.transform = 'translateY(' + (y * 1.0) + 'px)';
+        vid.style.transform = 'translateY(' + (y) + 'px)';
       }
 
       window.addEventListener('scroll', onScrollActivity, {passive:true});
@@ -319,11 +319,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
