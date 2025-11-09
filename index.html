@@ -306,7 +306,7 @@
         if(scrollTimeout) clearTimeout(scrollTimeout);
         scrollTimeout = setTimeout(()=>{
           try { vid.pause(); } catch(e){}
-        }, 500);
+        }, 100);
 
         // subtle parallax
         const y = window.scrollY || 0;
@@ -319,3 +319,4 @@
   </script>
 </body>
 </html>
+
