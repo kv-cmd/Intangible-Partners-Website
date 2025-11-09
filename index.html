@@ -19,7 +19,7 @@
     }
     body{
       font-family:'Inter',sans-serif;
-      background-color:var(--dark-bg);
+      background-color:transparent;
       color:#E5E7EB;
     }
 
@@ -306,7 +306,7 @@
         if(scrollTimeout) clearTimeout(scrollTimeout);
         scrollTimeout = setTimeout(()=>{
           try { vid.pause(); } catch(e){}
-        }, 100);
+        }, 120);
 
         // subtle parallax
         const y = window.scrollY || 0;
@@ -319,4 +319,5 @@
   </script>
 </body>
 </html>
+
 
